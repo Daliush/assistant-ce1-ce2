@@ -1,0 +1,46 @@
+---
+name: supports-eleve
+description: Concevoir les documents que les élèves de CE1-CE2 ont entre les mains ou sous les yeux — fiche d'exercices, trace écrite (leçon), plan de travail, atelier autonome, fiche de dictée, questionnaire de lecture, évaluation, affichage — avec consignes adaptées, progressivité, différenciation et corrigé. À charger dès qu'un support élève est produit (le contenu vient des skills de didactique, la mise en fichier de rendu-documents).
+---
+
+# Supports élève
+
+Ce skill décide **la forme pédagogique** d'un document élève. Le contenu vient de `didactique-francais` / `didactique-maths` (et `programme-cycle2`), la fabrication du fichier de `rendu-documents`.
+
+Gabarits détaillés par type : `references/types-de-supports.md`.
+
+## Règles pour tout support élève
+
+### En-tête
+- « Prénom : ________ Date : ________ » ; le titre de la notion ; le niveau (CE1 / CE2) discret en haut à droite.
+- En double niveau, **un fichier par niveau** (ne jamais mettre les exercices CE1 et CE2 sur la même feuille, sauf atelier commun).
+
+### Consignes
+- **Un seul verbe d'action** par consigne, à l'impératif, en tête : *Lis, Entoure, Souligne, Relie, Complète, Écris, Colorie, Recopie, Range, Calcule, Trace*.
+- **Courtes** (une ligne si possible), **numérotées**, en **gras**, avec **un exemple fait** quand la tâche est nouvelle.
+- CE1 en début d'année : consignes **déchiffrables** et accompagnées d'un **pictogramme** constant (même picto = même verbe toute l'année) ; elles sont **lues collectivement** avant l'autonomie.
+- Lexique de la classe (`classe.yaml` → `lexique`) respecté dans les consignes.
+
+### Contenu
+- **Une notion par fiche.** Pas d'exercice qui mobilise une notion non étudiée.
+- **Progressivité** : repérer → compléter → transformer → produire. 3 à 5 exercices ; 4 à 8 items chacun.
+- **Différenciation sur la même fiche** plutôt que trois fiches : exercices de base pour tous + un exercice **★ défi** (prolongement) en fin de fiche. Pour l'étayage, une **version allégée** (moins d'items, mots-étiquettes, police agrandie) : produite si le prof la demande ou si `classe.yaml` signale des adaptations pour ce niveau ; sinon proposée en une ligne. Règle valable pour tous les supports, dictées comprises.
+- **Place pour répondre** suffisante (lignes d'écriture pour l'écrit, cases pour les calculs, cadre « Mon schéma » pour les problèmes).
+- **Autocorrection possible** pour les fiches d'autonomie (fiche réponse séparée, ou réponse vérifiable : puzzle, code couleur).
+- **Une page A4** quand c'est possible ; deux maximum.
+
+### Corrigé et document prof
+- **Le corrigé est un fichier séparé** (`…_corrige.pdf`), calculé/vérifié, avec les réponses acceptables.
+- L'encadré **« À vérifier »** n'est **jamais** sur la feuille élève : il va dans la réponse au prof et sur la fiche de préparation.
+
+### Accessibilité et adaptations
+- Police sans empattement, taille 14 pt minimum pour les CE1, 13 pt pour les CE2 (16 pt pour une adaptation « police agrandie »), interligne 1,5, texte aligné à gauche (jamais justifié), pas d'italique ni de majuscules pour du texte long, espace entre les exercices.
+- Adaptations de `classe.yaml` → `eleves[].adaptations` : produire la version adaptée en plus, nommée `…_adapte.pdf`, **sans nom d'élève** sur le fichier.
+- Noir et blanc : jamais d'information portée uniquement par la couleur (« colorie en rouge » → « colorie », « entoure », « souligne »).
+
+## Ce que tu livres pour un support
+
+1. La feuille élève (par niveau).
+2. Le corrigé.
+3. Si demandé ou si c'est une séance : la fiche de préparation (`planifier`).
+4. Dans la réponse : en 2-3 lignes ce que contient le support, l'hypothèse faite (période, sons connus…), puis « À vérifier ».

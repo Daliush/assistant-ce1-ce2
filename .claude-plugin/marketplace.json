@@ -1,0 +1,15 @@
+{
+  "name": "assistant-ce1-ce2-marketplace",
+  "description": "Catalogue contenant le plugin Assistant CE1-CE2.",
+  "owner": {
+    "name": "Daliush",
+    "url": "https://github.com/Daliush"
+  },
+  "plugins": [
+    {
+      "name": "assistant-ce1-ce2",
+      "source": "./",
+      "description": "Assistant pédagogique pour classes de CE1, CE2 et CE1-CE2 (programmes 2026-2027)."
+    }
+  ]
+}

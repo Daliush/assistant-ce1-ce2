@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(/data/journal/**)",
+      "Edit(/sorties/**)",
+      "Bash(pdftoppm *)",
+      "Bash(pdfinfo *)"
+    ]
+  }
+}

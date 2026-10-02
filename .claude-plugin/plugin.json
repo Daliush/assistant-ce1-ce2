@@ -1,0 +1,22 @@
+{
+  "name": "assistant-ce1-ce2",
+  "displayName": "Assistant CE1-CE2",
+  "version": "1.0.0",
+  "description": "Assistant pédagogique pour classes de CE1, CE2 et CE1-CE2 (programmes 2026-2027) : séquences, séances, fiches, dictées, problèmes, journées, évaluations, PDF imprimables.",
+  "author": {
+    "name": "Daliush",
+    "url": "https://github.com/Daliush"
+  },
+  "homepage": "https://github.com/Daliush/assistant-ce1-ce2",
+  "repository": "https://github.com/Daliush/assistant-ce1-ce2",
+  "keywords": [
+    "école",
+    "enseignement",
+    "CE1",
+    "CE2",
+    "cycle 2",
+    "français",
+    "mathématiques",
+    "éducation nationale"
+  ]
+}

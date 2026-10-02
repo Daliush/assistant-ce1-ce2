@@ -1,0 +1,137 @@
+/* Feuille de style des documents imprimables CE1-CE2
+   A4 portrait, noir et blanc, lisible par de jeunes lecteurs.
+   Utilisée par html_vers_pdf.py (WeasyPrint ou Chromium). */
+
+@page {
+  size: A4;
+  margin: 12mm 14mm 14mm 14mm;
+}
+@page paysage { size: A4 landscape; }
+.paysage { page: paysage; }
+
+:root {
+  --encre: #000;
+  --gris: #555;
+  --gris-clair: #bbb;
+  --taille: 14pt;          /* CE1 : 14pt minimum ; adaptation : 16pt */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  color: var(--encre);
+  background: #fff;
+  /* Andika : police conçue pour l'apprentissage de la lecture (a et g scolaires).
+     Luciole : police pour malvoyants. Sinon police sans empattement du système. */
+  font-family: "Andika", "Luciole", "Arial", "Liberation Sans", "DejaVu Sans", sans-serif;
+  font-size: var(--taille);
+  line-height: 1.5;
+  text-align: left;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body.adapte { --taille: 16pt; line-height: 1.7; letter-spacing: 0.03em; word-spacing: 0.12em; }
+body.ce2 { --taille: 13pt; }
+
+/* ---------- En-tête ---------- */
+.entete {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-bottom: 1.5pt solid var(--encre);
+  padding-bottom: 2mm; margin-bottom: 4mm;
+  font-size: 12pt;
+}
+.entete .champ { flex: 1; }
+.entete .niveau { font-weight: bold; border: 1pt solid var(--encre); padding: 0 2mm; }
+
+h1 { font-size: 20pt; margin: 0 0 1mm 0; text-transform: none; }
+.objectif { font-size: 12pt; color: var(--gris); margin: 0 0 5mm 0; }
+.objectif::before { content: "Objectif : "; font-weight: bold; color: var(--encre); }
+
+/* ---------- Exercices ---------- */
+.exercice { margin: 0 0 6mm 0; break-inside: avoid; page-break-inside: avoid; }
+.consigne { font-weight: bold; margin: 0 0 2mm 0; display: flex; gap: 2mm; align-items: flex-start; }
+.consigne .num {
+  display: inline-block; min-width: 7mm; height: 7mm; line-height: 7mm;
+  border: 1.5pt solid var(--encre); border-radius: 50%; text-align: center; font-size: 11pt;
+}
+.consigne svg.picto { width: 7mm; height: 7mm; flex: none; }
+.exemple { font-style: normal; border-left: 2pt solid var(--gris-clair); padding-left: 3mm; color: var(--gris); }
+.exemple::before { content: "Exemple : "; font-weight: bold; }
+.defi .consigne .num { border-style: dashed; }
+.defi .consigne::after { content: " ★"; }
+
+ol.items, ul.items { margin: 0; padding-left: 8mm; }
+ol.items li, ul.items li { margin-bottom: 1.5mm; }
+
+/* Réponses */
+.trou { display: inline-block; min-width: 25mm; border-bottom: 1pt solid var(--encre); height: 1em; }
+.trou.court { min-width: 12mm; }
+.case { display: inline-block; width: 6mm; height: 6mm; border: 1pt solid var(--encre); vertical-align: middle; }
+
+/* Lignes d'écriture simples (interligne large) */
+.lignes { margin-top: 2mm; }
+.lignes .ligne { border-bottom: 1pt solid var(--encre); height: 11mm; }
+
+/* Lignage Seyès (8 mm, 3 lignes fines intermédiaires) */
+/* Motif vectoriel de 8 mm : 3 lignes fines (gris) + 1 ligne principale (noire).
+   Un SVG est plus fiable à l'impression que des dégradés CSS. --n = nombre de lignes. */
+.seyes {
+  height: calc(var(--n, 3) * 8mm);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'><rect x='0' y='1.9' width='100' height='0.12' fill='%23888'/><rect x='0' y='3.9' width='100' height='0.12' fill='%23888'/><rect x='0' y='5.9' width='100' height='0.12' fill='%23888'/><rect x='0' y='7.78' width='100' height='0.22' fill='%23000'/></svg>");
+  background-size: 100% 8mm;
+  background-repeat: repeat-y;
+  margin: 2mm 0;
+}
+/* Lignage agrandi : carreau de 12 mm (interlignes de 3 mm) */
+.seyes.grand {
+  height: calc(var(--n, 3) * 12mm);
+  background-size: 100% 12mm;
+}
+
+/* Cadres (problèmes, dessins) */
+.cadre { border: 1pt solid var(--encre); border-radius: 2mm; padding: 2mm 3mm; min-height: 25mm; margin: 2mm 0; }
+.cadre .titre-cadre { font-size: 10pt; font-weight: bold; color: var(--gris); }
+.zones { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3mm; }
+.zones .cadre.large { grid-column: 1 / -1; min-height: 14mm; }
+
+/* Étiquettes à découper */
+.etiquettes { display: flex; flex-wrap: wrap; gap: 3mm; }
+.etiquette { border: 1pt dashed var(--encre); padding: 2mm 4mm; }
+
+/* Tableaux */
+table { border-collapse: collapse; width: 100%; margin: 2mm 0; }
+th, td { border: 1pt solid var(--encre); padding: 1.5mm 2mm; text-align: left; vertical-align: top; }
+th { background: #eee; }
+
+/* Texte de lecture numéroté */
+.texte-lecture { border: 1pt solid var(--encre); padding: 3mm 4mm 3mm 12mm; counter-reset: ligne; }
+.texte-lecture p { margin: 0; position: relative; }
+.texte-lecture p.num::before { position: absolute; left: -9mm; font-size: 9pt; color: var(--gris); content: attr(data-l); }
+
+/* Leçon / trace écrite */
+.lecon { border: 2pt solid var(--encre); border-radius: 3mm; padding: 3mm 5mm; }
+.lecon h2 { margin: 0 0 2mm 0; font-size: 15pt; }
+.a-retenir { font-weight: bold; }
+.demi-a4 { height: 138mm; overflow: hidden; border-bottom: 1pt dashed var(--gris); margin-bottom: 4mm; }
+
+/* Documents enseignant (prep, corrigé) : plus denses */
+body.prof { --taille: 11pt; line-height: 1.35; }
+body.prof h1 { font-size: 16pt; }
+body.prof h2 { font-size: 13pt; margin: 4mm 0 1mm 0; border-bottom: 0.75pt solid var(--encre); }
+.prof-avec { font-weight: bold; }
+.prof-avec::before { content: "● "; }
+.a-verifier { border: 1.5pt solid var(--encre); padding: 2mm 4mm; margin-top: 5mm; }
+.a-verifier::before { content: "À vérifier"; display: block; font-weight: bold; margin-bottom: 1mm; }
+.reponse { font-weight: bold; text-decoration: underline; }
+
+/* Marques de correction dans les exemples et les corrigés */
+.entoure { border: 1.2pt solid var(--encre); border-radius: 50%; padding: 0 1.5mm; }
+.souligne { text-decoration: underline; text-decoration-thickness: 1.2pt; text-underline-offset: 2pt; }
+
+/* Utilitaires */
+.saut-page { break-after: page; page-break-after: always; }
+.petit { font-size: 10pt; }
+.centre { text-align: center; }
+.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
