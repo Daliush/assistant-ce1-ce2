@@ -1,0 +1,39 @@
+{
+  "name": "assistant-ce1-ce2",
+  "version": "1.0.0",
+  "description": "Assistant pédagogique pour classes de CE1, CE2 et CE1-CE2 (programmes 2026-2027) : séquences, séances, fiches, dictées, problèmes, journées, évaluations, PDF imprimables.",
+  "author": {
+    "name": "Daliush",
+    "url": "https://github.com/Daliush"
+  },
+  "homepage": "https://github.com/Daliush/assistant-ce1-ce2",
+  "repository": "https://github.com/Daliush/assistant-ce1-ce2",
+  "keywords": [
+    "école",
+    "enseignement",
+    "CE1",
+    "CE2",
+    "cycle 2",
+    "français",
+    "mathématiques",
+    "éducation nationale"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Assistant CE1-CE2",
+    "shortDescription": "Préparer la classe en CE1, CE2 ou CE1-CE2",
+    "longDescription": "Séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées et évaluations pour le CE1 et le CE2, conformes aux programmes 2026-2027. Les documents sortent en PDF A4 imprimables en noir et blanc, avec corrigé et fiche de préparation.",
+    "developerName": "Daliush",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Daliush/assistant-ce1-ce2",
+    "defaultPrompt": [
+      "Prépare ce dossier pour ma classe de CE1-CE2",
+      "Une dictée pour mes CE2 sur les pluriels en -aux",
+      "Prépare-moi la première séance de grammaire sur la phrase pour mes CE1 et mes CE2"
+    ]
+  }
+}

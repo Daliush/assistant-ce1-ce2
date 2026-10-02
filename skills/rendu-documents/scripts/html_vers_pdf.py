@@ -24,6 +24,8 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
+import time
 from pathlib import Path
 
 
@@ -60,25 +62,53 @@ def via_playwright(src: Path, dst: Path) -> bool:
         return False
 
 
+def attendre_pdf(dst: Path, delai: float = 20) -> bool:
+    """Attend que le PDF existe et ne grossisse plus : Edge rend la main avant de l'écrire."""
+    fin = time.monotonic() + delai
+    taille = -1
+    while time.monotonic() < fin:
+        if dst.exists():
+            t = dst.stat().st_size
+            if t > 0 and t == taille:
+                return True
+            taille = t
+        time.sleep(0.5)
+    return False
+
+
 def via_chrome_cli(src: Path, dst: Path) -> bool:
     candidats = [
         "chromium", "chromium-browser", "google-chrome", "google-chrome-stable",
-        "microsoft-edge",
+        "microsoft-edge", "msedge",
         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
         "/Applications/Chromium.app/Contents/MacOS/Chromium",
         r"C:\Program Files\Google\Chrome\Application\chrome.exe",
         r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
     ]
     for c in candidats:
         exe = shutil.which(c) or (c if Path(c).exists() else None)
         if not exe:
             continue
-        r = subprocess.run(
-            [exe, "--headless", "--disable-gpu", "--no-pdf-header-footer",
-             f"--print-to-pdf={dst}", src.resolve().as_uri()],
-            capture_output=True, text=True, timeout=120)
-        if r.returncode == 0 and dst.exists():
-            return True
+        # Second essai sans le bac à sable du navigateur : nécessaire quand
+        # l'assistant tourne lui-même dans un bac à sable (Codex sous Windows).
+        for options in ([], ["--no-sandbox"]):
+            dst.unlink(missing_ok=True)
+            # Profil temporaire : ne touche pas au navigateur ouvert du prof.
+            profil = tempfile.mkdtemp(prefix="html_vers_pdf-")
+            try:
+                r = subprocess.run(
+                    [exe, "--headless", "--disable-gpu", "--no-pdf-header-footer",
+                     "--no-first-run", f"--user-data-dir={profil}", *options,
+                     f"--print-to-pdf={dst.resolve()}", src.resolve().as_uri()],
+                    capture_output=True, text=True, timeout=120)
+                ok = r.returncode == 0 and attendre_pdf(dst)
+            except subprocess.TimeoutExpired:
+                ok = False
+            finally:
+                shutil.rmtree(profil, ignore_errors=True)
+            if ok:
+                return True
     return False
 
 

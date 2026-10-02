@@ -60,6 +60,7 @@ Formule courte : « La séquence *la phrase* (CE2) en est à la séance 2 sur 5.
 - **N'oblige jamais le prof à le remplir.** Sans lui, tout fonctionne : niveau tiré de la demande, période tirée de la date, acquis = repères ★ du programme, PDF A4 noir et blanc.
 - **Création** : au premier « oui, note-le ». Crée le fichier avec **seulement** les champs que le prof a donnés (les autres restent absents, pas vides). **Reprends les noms de champs de l'exemple** de `references/formats.md` §3 (`zone`, `manuels.CE1_lecture`, `sons_etudies_CE1`, `lexique`…) ; n'invente un nouveau champ que si rien ne convient.
 - **Enrichissement** : quand le prof donne une info stable en passant (« mes CE1 utilisent *Taoki* », « on n'a pas classe le mercredi », « E04 a besoin des consignes lues »), termine ta réponse par « Je le note pour la suite ? ». Écris seulement après un oui.
+- **Info ou consigne ?** `classe.yaml` garde les infos sur la classe et les réglages qui y ont un champ. Une consigne sur ta façon de travailler (« tutoie-moi », « toujours une version différenciée ») va dans `AGENTS.md` : skill `dossier-classe`. Ne pose qu'une question en fin de réponse, même si les deux s'appliquent.
 - **Relances limitées** : au plus une par session, et seulement pour une info de cette liste fermée, quand elle manque **et** dégrade vraiment le résultat demandé :
   - les sons étudiés en CE1 (pour un texte que les CE1 lisent seuls) ;
   - l'algorithme de soustraction posée de l'école (pour une séance de soustraction posée) ;

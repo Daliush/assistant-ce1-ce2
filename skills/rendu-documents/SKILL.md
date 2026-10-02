@@ -34,7 +34,8 @@ Garde les **sources HTML** dans `sorties/src/` (même nom, `.html`), pour pouvoi
    ```bash
    python3 ${CLAUDE_SKILL_DIR}/scripts/html_vers_pdf.py ${CLAUDE_PROJECT_DIR}/sorties/src/X.html ${CLAUDE_PROJECT_DIR}/sorties/X.pdf --apercu
    ```
-   Le script essaie Playwright/Chromium, puis un Chrome/Chromium/Edge installé, puis WeasyPrint. Si rien ne marche, il le dit : livre alors le HTML en expliquant « ouvre-le dans ton navigateur, Imprimer > Enregistrer en PDF, A4, graphiques d'arrière-plan cochés ».
+   Remplace d'abord `${CLAUDE_SKILL_DIR}` et `${CLAUDE_PROJECT_DIR}` par les vrais chemins si ton outil ne l'a pas fait (voir `assistant-classe` §0). Sous Windows, `python3` n'existe souvent pas : utilise `python` ou `py`.
+   Le script essaie Playwright/Chromium, puis un Chrome/Chromium/Edge installé, puis WeasyPrint. Si rien ne marche, il le dit : livre alors le HTML en expliquant « ouvre-le dans ton navigateur, Imprimer > Enregistrer en PDF, A4, graphiques d'arrière-plan cochés ». **N'improvise pas un autre moteur** (reportlab, script maison) : la mise en page de `fiche.css` serait perdue. Ne laisse dans `sorties/` que les documents et leurs sources (pas de script, pas de profil de navigateur).
 4. **Vérifie toujours visuellement** : l'option `--apercu` crée un PNG de chaque page (jusqu'à 3) dans `sorties/src/` ; regarde au moins la page 1 (outil de lecture d'image). Contrôle : rien de coupé, pas de page presque vide, place suffisante pour écrire, pictogrammes et lignes visibles, tient sur 1 page si prévu.
 5. Si le PDF fait une page de trop, réduis les marges internes ou le nombre d'items plutôt que la taille de police (jamais < 14 pt pour les CE1).
 

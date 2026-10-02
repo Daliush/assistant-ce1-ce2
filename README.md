@@ -1,6 +1,6 @@
 # Assistant CE1-CE2
 
-Un plugin [Claude Code](https://code.claude.com) pour préparer la classe en **CE1, CE2 ou CE1-CE2** : séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées, évaluations. Les documents sortent en **PDF A4 imprimables en noir et blanc**, avec leur corrigé et une fiche de préparation.
+Un plugin [Claude Code](https://code.claude.com), qui fonctionne aussi avec [Codex](#utiliser-avec-codex-chatgpt), pour préparer la classe en **CE1, CE2 ou CE1-CE2** : séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées, évaluations. Les documents sortent en **PDF A4 imprimables en noir et blanc**, avec leur corrigé et une fiche de préparation.
 
 Il s'appuie sur les **programmes officiels en vigueur en 2026-2027**, relus sur les textes du Bulletin officiel : repères de période, listes fermées (temps, verbes, champ numérique), horaires.
 
@@ -28,7 +28,7 @@ Tout se fait en français, en langage courant :
 
 ### 1. Prérequis
 
-- [Claude Code](https://code.claude.com) installé et connecté à un compte Claude.
+- [Claude Code](https://code.claude.com) **2.1.277 ou plus récent** (pour qu'il lise `AGENTS.md`), connecté à un compte Claude. Vérifier avec `claude --version`, mettre à jour avec `claude update`. Ou bien Codex : voir [Utiliser avec Codex](#utiliser-avec-codex-chatgpt).
 - Pour fabriquer les PDF, **une seule** de ces options :
   - `pip install playwright && playwright install chromium` (recommandé) ;
   - ou Google Chrome, Chromium ou Microsoft Edge installé ;
@@ -55,16 +55,20 @@ claude plugin install assistant-ce1-ce2@assistant-ce1-ce2-marketplace
 
 ### 3. Créer le dossier de la classe
 
-Copiez le dossier [`modele-classe/`](modele-classe/) de ce dépôt (bouton **Code → Download ZIP** sur GitHub) et renommez-le, par exemple `classe-2026-2027`. Prévoyez un dossier par classe ou par année.
+Créez un dossier vide où vous voulez, par exemple `classe-2026-2027` (un dossier par classe ou par année), ouvrez-le dans Claude Code et demandez ce dont vous avez besoin. Rien n'est à copier ni à remplir.
 
 ```bash
+mkdir classe-2026-2027
 cd classe-2026-2027
 claude
 ```
 
-La première fois, acceptez la demande de confiance du dossier : c'est elle qui active les autorisations du fichier `.claude/settings.json`. Puis demandez ce dont vous avez besoin.
+La première fois, acceptez la demande de confiance du dossier. Dès votre première demande, l'assistant prépare le dossier tout seul : il crée le fichier `AGENTS.md` et les dossiers `data/` et `sorties/`, puis vous répond. Vous pouvez aussi commencer par « Prépare ce dossier pour ma classe ».
 
-Rien n'est à remplir pour commencer. Quand vous donnez une information utile sur votre classe (méthode de lecture, sons étudiés, zone de vacances, élèves qui ont besoin d'adaptations…), l'assistant propose de la noter pour la suite.
+Ensuite, deux façons de lui apprendre votre classe :
+
+- **vos habitudes** : « Ajoute à mes consignes que je veux toujours une version différenciée. » Elles sont écrites dans `AGENTS.md`, que vous pouvez aussi modifier à la main ;
+- **vos informations** (méthode de lecture, sons étudiés, zone de vacances, élèves qui ont besoin d'adaptations…) : quand vous en donnez une, l'assistant propose de la noter dans `data/classe.yaml`.
 
 ### Recevoir les mises à jour
 
@@ -73,13 +77,35 @@ Les mises à jour ne s'installent pas toutes seules. Deux possibilités :
 - activer la mise à jour automatique : dans `/plugin`, onglet **Marketplaces**, choisir `assistant-ce1-ce2-marketplace` puis **Enable auto-update** ;
 - ou mettre à jour à la main : `claude plugin update assistant-ce1-ce2@assistant-ce1-ce2-marketplace`.
 
+Dossier créé avec la version 1.0 (copie de `modele-classe/`) : demandez « Mets à jour mon dossier de classe ». L'assistant ajoute `AGENTS.md` et retire l'ancien `CLAUDE.md`, sans toucher à vos données.
+
+## Utiliser avec Codex (ChatGPT)
+
+Le même dépôt s'installe aussi comme plugin [Codex](https://developers.openai.com/codex) : mêmes skills, même dossier de classe (`AGENTS.md`, `data/`, `sorties/`). On peut passer d'un outil à l'autre sur le même dossier.
+
+Dans un terminal, avec Codex CLI installé (`npm install -g @openai/codex`) :
+
+```bash
+codex plugin marketplace add Daliush/assistant-ce1-ce2
+codex plugin add assistant-ce1-ce2@assistant-ce1-ce2-marketplace
+```
+
+Redémarrez l'application Codex si elle était ouverte. Ensuite, comme avec Claude Code : créez un dossier vide, ouvrez-le dans Codex et demandez ce dont vous avez besoin.
+
+Pour mettre à jour : `codex plugin marketplace upgrade`, puis relancez la commande `codex plugin add` ci-dessus.
+
+Bon à savoir :
+
+- `.claude/settings.json` ne sert qu'à Claude Code. Avec ses réglages par défaut, Codex écrit dans le dossier ouvert sans demander.
+- Sous Windows, Codex passe par PowerShell : les skills lui disent de lire les fichiers en UTF-8, sinon les accents sont abîmés.
+
 ## Où sont vos fichiers
 
 Le plugin ne contient que les instructions. **Tout ce qui concerne votre classe reste dans le dossier de la classe** : mettre à jour le plugin n'y touche jamais.
 
 ```
 classe-2026-2027/
-├── CLAUDE.md               # dit à l'assistant d'utiliser le plugin
+├── AGENTS.md               # dit à l'assistant d'utiliser le plugin, et garde vos consignes
 ├── .claude/settings.json   # autorise l'écriture sans demander dans data/journal/ et sorties/
 ├── data/                   # la mémoire de la classe
 │   ├── classe.yaml         # facultatif : créé seulement quand vous dites « oui, note-le »
@@ -120,13 +146,15 @@ PPRE, mots aux familles et réunion de rentrée, cahier de remplacement, projets
 
 ### Organisation du dépôt
 
-Ce dépôt est à la fois le plugin et une marketplace qui le contient (`.claude-plugin/marketplace.json`, source `./`).
+Ce dépôt est à la fois le plugin et une marketplace qui le contient (`.claude-plugin/marketplace.json`, source `./`). Codex lit cette même marketplace (format reconnu tel quel) et son propre manifeste, `.codex-plugin/plugin.json`.
 
 ```
 assistant-ce1-ce2/
 ├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
+│   ├── plugin.json           # manifeste Claude Code
+│   └── marketplace.json      # marketplace, lue par Claude Code et par Codex
+├── .codex-plugin/
+│   └── plugin.json           # manifeste Codex (même nom, même version)
 ├── skills/
 │   ├── assistant-classe/     # point d'entrée : règles générales, emplacement des données, choix des skills
 │   ├── programme-cycle2/     # programme officiel CE1 et CE2 (données de référence)
@@ -136,8 +164,8 @@ assistant-ce1-ce2/
 │   ├── supports-eleve/       # forme des fiches, leçons, plans de travail, évaluations
 │   ├── rendu-documents/      # HTML + CSS + script → PDF (assets/, scripts/)
 │   ├── evaluer-suivre/       # évaluations, groupes de besoin, livret, analyse d'erreurs
-│   └── etat-classe/          # format de data/ et règles de lecture et d'écriture
-└── modele-classe/            # dossier de classe vide, à copier par les utilisateurs
+│   ├── etat-classe/          # format de data/ et règles de lecture et d'écriture
+│   └── dossier-classe/       # prépare le dossier de classe et tient AGENTS.md à jour (modèles dans assets/)
 ```
 
 ### Principes
@@ -145,14 +173,24 @@ assistant-ce1-ce2/
 - **Un seul agent** charge les skills dont il a besoin. Il n'y a pas de sous-agent par matière ou par niveau.
 - **Données de référence dans les skills, état de la classe dans le projet de l'utilisateur.** Les skills désignent leurs propres fichiers par `${CLAUDE_SKILL_DIR}` et ceux de la classe par `${CLAUDE_PROJECT_DIR}`. Ils fonctionnent donc installés en plugin, dans `~/.claude/skills/` ou dans `.claude/skills/` d'un projet.
 - **Le plugin n'écrit jamais dans son propre dossier.**
-- **`assistant-classe` remplace un `CLAUDE.md`**, qu'un plugin ne peut pas fournir. Le `CLAUDE.md` du dossier de classe se contente de renvoyer vers lui.
+- **`assistant-classe` remplace un `CLAUDE.md`**, qu'un plugin ne peut pas fournir. Le dossier de classe n'a qu'un `AGENTS.md`, créé à la demande par `dossier-classe` : il renvoie vers `assistant-classe` et porte les consignes du prof, entre un bloc géré par le plugin (marqueurs `assistant-ce1-ce2:debut` / `fin`, remplacé quand le modèle change) et la section « Mes consignes », qui n'appartient qu'au prof.
+- **`AGENTS.md` plutôt que `CLAUDE.md`**, pour être lu par tous les outils. Claude Code le lit seul depuis la version 2.1.277, à condition que le dossier n'ait pas de `CLAUDE.md` (sinon il lit `CLAUDE.md` à la place) : `dossier-classe` supprime donc l'ancien `CLAUDE.md` de la version 1.0, ou y ajoute `@AGENTS.md` si le prof y a écrit autre chose.
 
 ### Tester en local
 
 ```bash
 claude plugin validate .                         # manifestes
-cd /chemin/vers/une-copie-de-modele-classe
+cd /chemin/vers/un-dossier-vide
 claude --plugin-dir /chemin/vers/assistant-ce1-ce2
+```
+
+Avec Codex, la marketplace locale est copiée à l'installation : après chaque modification, retirez puis réinstallez le plugin.
+
+```bash
+codex plugin marketplace add /chemin/vers/assistant-ce1-ce2
+codex plugin remove assistant-ce1-ce2@assistant-ce1-ce2-marketplace
+codex plugin add assistant-ce1-ce2@assistant-ce1-ce2-marketplace
+codex exec --ephemeral --skip-git-repo-check -C /chemin/vers/un-dossier-vide "Une dictée pour mes CE2 sur les pluriels en -aux"
 ```
 
 ### Versions et livraisons
@@ -161,7 +199,7 @@ Les utilisateurs ne reçoivent une nouvelle version que lorsque le champ `versio
 
 Pour livrer :
 
-1. incrémenter `version` dans `plugin.json` (`1.0.0` → `1.0.1` pour une correction, `1.1.0` pour un ajout, `2.0.0` pour un changement qui casse le format de `data/`) ;
+1. incrémenter `version` dans `.claude-plugin/plugin.json` **et** `.codex-plugin/plugin.json`, avec le même numéro (`1.0.0` → `1.0.1` pour une correction, `1.1.0` pour un ajout, `2.0.0` pour un changement qui casse le format de `data/`) ;
 2. `claude plugin validate --strict .` ;
 3. committer, puis taguer et pousser : `claude plugin tag --push` (crée le tag `assistant-ce1-ce2--v1.0.1`).
 
