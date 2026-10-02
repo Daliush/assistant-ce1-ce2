@@ -24,10 +24,11 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 ### Contenu
 - **Une notion par fiche.** Pas d'exercice qui mobilise une notion non étudiée.
 - **Progressivité** : repérer → compléter → transformer → produire. 3 à 5 exercices ; 4 à 8 items chacun.
-- **Différenciation sur la même fiche** plutôt que trois fiches : exercices de base pour tous + un exercice **★ défi** (prolongement) en fin de fiche. Pour l'étayage, une **version allégée** (moins d'items, mots-étiquettes, police agrandie) : produite si le prof la demande ou si `classe.yaml` signale des adaptations pour ce niveau ; sinon proposée en une ligne. Règle valable pour tous les supports, dictées comprises.
+- **Différenciation sur la même fiche** plutôt que trois fiches : exercices de base pour tous + un exercice **★ défi** (prolongement) en fin de fiche. Pour l'étayage, une **version allégée** `…_allegee.pdf` : **moins de contenu** (moins d'items, mots-étiquettes, phrases à compléter, dictée à trous), même mise en forme que la fiche. Produite si le prof la demande ; sinon proposée en une ligne. Règle valable pour tous les supports, dictées comprises.
 - **Place pour répondre** suffisante (lignes d'écriture pour l'écrit, cases pour les calculs, cadre « Mon schéma » pour les problèmes).
 - **Autocorrection possible** pour les fiches d'autonomie (fiche réponse séparée, ou réponse vérifiable : puzzle, code couleur).
 - **Une page A4** quand c'est possible ; deux maximum.
+- **Demi-A4** quand la fiche tient sur une demi-page (dictée, petite fiche de réinvestissement, ticket de sortie) : deux exemplaires identiques sur la même feuille, chacun avec son en-tête, séparés par le pointillé de découpe (`.demi-a4`). Le prof photocopie deux fois moins.
 
 ### Corrigé et document prof
 - **Le corrigé est un fichier séparé** (`…_corrige.pdf`), calculé/vérifié, avec les réponses acceptables.
@@ -35,7 +36,8 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 
 ### Accessibilité et adaptations
 - Police sans empattement, taille 14 pt minimum pour les CE1, 13 pt pour les CE2 (16 pt pour une adaptation « police agrandie »), interligne 1,5, texte aligné à gauche (jamais justifié), pas d'italique ni de majuscules pour du texte long, espace entre les exercices.
-- Adaptations de `classe.yaml` → `eleves[].adaptations` : produire la version adaptée en plus, nommée `…_adapte.pdf`, **sans nom d'élève** sur le fichier.
+- Adaptations de `classe.yaml` → `eleves[].adaptations` : produire la **version adaptée** en plus, nommée `…_adapte.pdf`, **sans nom d'élève** sur le fichier. C'est **le même contenu** que la fiche, seule la forme change (police 16 pt avec `<body class="adapte">`, lignage agrandi, espacements). Un élève qui a besoin d'une police agrandie fait les mêmes exercices que les autres : ne lui donne pas la version allégée à la place. Si un élève relève des deux, adapte la version allégée (`…_allegee_adapte.pdf`).
+- « Consignes lues » ne change pas le document : rappelle-le dans la fiche de préparation (qui lit, à quel moment).
 - Noir et blanc : jamais d'information portée uniquement par la couleur (« colorie en rouge » → « colorie », « entoure », « souligne »).
 
 ## Ce que tu livres pour un support

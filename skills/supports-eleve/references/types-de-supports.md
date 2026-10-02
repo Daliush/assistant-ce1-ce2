@@ -44,7 +44,7 @@ Fiche **pour le prof** (une ligne dans la prep) : objectif, prérequis (déjà f
 
 ## 5. Fiche de dictée
 
-- Feuille élève : lignes d'écriture (Seyès ou interlignes larges), numéros de phrases, éventuellement **dictée à trous** pour la version allégée.
+- Feuille élève : lignes d'écriture (Seyès ou interlignes larges), numéros de phrases, éventuellement **dictée à trous** pour la version allégée. Une dictée tient presque toujours sur une demi-page : mets-la en **demi-A4** (deux exemplaires par feuille, à découper).
 - Fiche prof (séparée) : texte à dicter, mots à préparer, accords visés, points de vigilance, critères de correction (mots / accords comptés séparément).
 - Liste de mots à apprendre : une feuille courte, mots classés (par son, par famille), à coller dans le cahier.
 

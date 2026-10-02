@@ -28,14 +28,15 @@ Tout se fait en français, en langage courant :
 
 ### 1. Prérequis
 
-- [Claude Code](https://code.claude.com) **2.1.277 ou plus récent** (pour qu'il lise `AGENTS.md`), connecté à un compte Claude. Vérifier avec `claude --version`, mettre à jour avec `claude update`. Ou bien Codex : voir [Utiliser avec Codex](#utiliser-avec-codex-chatgpt).
-- Pour fabriquer les PDF, **une seule** de ces options :
-  - `pip install playwright && playwright install chromium` (recommandé) ;
-  - ou Google Chrome, Chromium ou Microsoft Edge installé ;
-  - ou `pip install weasyprint` (sous macOS et Windows, il faut aussi la bibliothèque Pango).
+- [Claude Code](https://code.claude.com) **2.1.277 ou plus récent** (pour qu'il lise `AGENTS.md`), connecté à un compte Claude : dans un terminal, ou dans l'onglet Code de l'application Claude. Vérifier avec `claude --version`, mettre à jour avec `claude update`. Ou bien Codex : voir [Utiliser avec Codex](#utiliser-avec-codex-chatgpt).
+- **Python 3**, pour fabriquer les PDF. Il est déjà là sous macOS et Linux. Sous Windows, installez-le depuis [python.org](https://www.python.org/downloads/) (cochez « Add python.exe to PATH ») ou depuis le Microsoft Store.
+- **Google Chrome ou Microsoft Edge** : le script s'en sert pour convertir les fiches en PDF. Sous Windows, Edge est toujours présent : rien à installer. Pour un rendu plus rapide, vous pouvez ajouter Playwright : `pip install playwright` puis `playwright install chromium`.
 
-  Sans aucun de ces outils, l'assistant livre des fichiers HTML à imprimer depuis le navigateur.
-- Facultatif : `pdftoppm` (paquet `poppler-utils` ou `poppler`), pour que l'assistant vérifie visuellement ses PDF ; la police gratuite [Andika](https://software.sil.org/andika/), conçue pour l'apprentissage de la lecture.
+  Sans Python ni navigateur, l'assistant livre des fichiers HTML à imprimer depuis le navigateur.
+- Facultatif :
+  - `pip install python-pptx`, pour les diaporamas PowerPoint ;
+  - `pdftoppm` (paquet `poppler-utils` ou `poppler`), pour que l'assistant vérifie visuellement ses PDF ;
+  - la police gratuite [Andika](https://software.sil.org/andika/), conçue pour l'apprentissage de la lecture.
 
 ### 2. Installer le plugin (une fois)
 
@@ -63,7 +64,15 @@ cd classe-2026-2027
 claude
 ```
 
-La première fois, acceptez la demande de confiance du dossier. Dès votre première demande, l'assistant prépare le dossier tout seul : il crée le fichier `AGENTS.md` et les dossiers `data/` et `sorties/`, puis vous répond. Vous pouvez aussi commencer par « Prépare ce dossier pour ma classe ».
+Dans l'application Claude, ouvrez simplement ce dossier depuis l'onglet Code.
+
+Dès votre première demande, l'assistant prépare le dossier tout seul : il crée le fichier `AGENTS.md` et les dossiers `data/` et `sorties/`, puis vous répond. Vous pouvez aussi commencer par « Prépare ce dossier pour ma classe ».
+
+Les premières fois, Claude Code peut vous poser trois questions. Acceptez-les :
+
+- la confiance dans le dossier, à la première ouverture ;
+- la lecture de fichiers hors du dossier : ce sont les fichiers du plugin (programmes, modèles). Choisissez de continuer à l'autoriser ;
+- l'écriture de `.claude/settings.json`, qui évite ensuite de redemander à chaque fiche.
 
 Ensuite, deux façons de lui apprendre votre classe :
 
@@ -165,7 +174,7 @@ assistant-ce1-ce2/
 │   ├── rendu-documents/      # HTML + CSS + script → PDF (assets/, scripts/)
 │   ├── evaluer-suivre/       # évaluations, groupes de besoin, livret, analyse d'erreurs
 │   ├── etat-classe/          # format de data/ et règles de lecture et d'écriture
-│   └── dossier-classe/       # prépare le dossier de classe et tient AGENTS.md à jour (modèles dans assets/)
+│   └── dossier-classe/       # prépare le dossier de classe et tient AGENTS.md à jour (modèles inclus dans SKILL.md)
 ```
 
 ### Principes
@@ -195,7 +204,7 @@ codex exec --ephemeral --skip-git-repo-check -C /chemin/vers/un-dossier-vide "Un
 
 ### Versions et livraisons
 
-Les utilisateurs ne reçoivent une nouvelle version que lorsque le champ `version` de `.claude-plugin/plugin.json` change. **Un push sans changement de version n'est pas livré** : on peut donc pousser librement sur `main` entre deux livraisons.
+Les utilisateurs ne reçoivent une nouvelle version que lorsque le champ `version` de `.claude-plugin/plugin.json` change. **Un push sans changement de version n'est pas livré** : on peut donc pousser librement sur `master` entre deux livraisons, mais un commit « v1.2.0 » sans changement du champ `version` ne sera jamais reçu par ceux qui ont déjà le plugin.
 
 Pour livrer :
 

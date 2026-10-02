@@ -1,4 +1,0 @@
-# PDF et aperçus régénérables à partir de sorties/src/*.html
-# (retirer ces lignes pour garder exactement ce qui a été imprimé)
-sorties/*.pdf
-sorties/src/*.png

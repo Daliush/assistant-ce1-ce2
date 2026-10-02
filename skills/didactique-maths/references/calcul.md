@@ -52,6 +52,7 @@ Fiche de fluence : une colonne de calculs, un cadre « mon score », un graphiqu
 - **Multiplication posée** : CE2 au plus tard en P4 ; préparée par la distributivité en calcul mental (23 × 7 = 20 × 7 + 3 × 7).
 - CE2 : addition posée de montants à virgule au plus tard en P2, soustraction posée de montants à virgule au plus tard en P4.
 - **Pas de division posée** au CE2 (sens de la division et symbole ÷ seulement — voir le fichier programme).
+- **Sur la fiche élève**, une opération posée laisse toujours une ligne vide au-dessus du premier nombre, assez haute pour écrire les retenues ou les cassages (chiffre barré et chiffre écrit au-dessus), et une ligne de résultat sous le trait.
 - Le calcul mental reste privilégié quand il est possible : « Faut-il poser 300 + 400 ? »
 
 ## 7. Corrigés

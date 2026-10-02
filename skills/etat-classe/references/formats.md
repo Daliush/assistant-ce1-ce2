@@ -9,7 +9,7 @@
 | Matière (texte du journal) | Français, Maths, QLM, EMC, EVAR, LVE, Arts, EPS, Toutes matières |
 | Domaine | mot court sans accent : `lecture`, `ecriture`, `dictee`, `oral`, `vocabulaire`, `grammaire`, `conjugaison`, `orthographe`, `culture`, `poesie`, `numeration`, `calcul`, `problemes`, `fractions`, `grandeurs`, `geometrie`, `donnees`… |
 | Type (fichier et journal) | `cours`, `lecon`, `exercice`, `dictee`, `lecture`, `problemes`, `atelier`, `plan-travail`, `seance-N` (N = numéro dans la séquence) ou `seance`, `sequence`, `programmation`, `journee`, `semaine`, `evaluation`, `affichage`, `etiquettes`, `diaporama` |
-| Variante (fichier seulement) | `_prep`, `_fiche` (feuille élève), `_corrige`, `_lecon`, `_adapte`, `_projection` |
+| Variante (fichier seulement) | `_prep`, `_fiche` (feuille élève), `_corrige`, `_lecon`, `_allegee` (moins de contenu), `_adapte` (même contenu, forme adaptée : police agrandie…), `_projection` |
 
 - **Nom de fichier** : `sorties/AAAA-MM-JJ_<niveau>_<matiere>-<domaine>_<type>[_variante].<ext>` ; pour une journée ou une semaine : `AAAA-MM-JJ_CE1-CE2_multi_journee.pdf`.
 - **Séance d'une séquence** : tous ses documents portent le type `seance-N` et la variante dit ce que c'est : `…_fr-grammaire_seance-2_prep.pdf`, `…_CE1_fr-grammaire_seance-2_fiche.pdf`, `…_seance-2_fiche_corrige.pdf`. Ainsi deux séances le même jour ne s'écrasent jamais.

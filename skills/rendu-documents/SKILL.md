@@ -1,6 +1,9 @@
 ---
 name: rendu-documents
-allowed-tools: Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/html_vers_pdf.py *)
+allowed-tools:
+  - Bash(python3 ${CLAUDE_SKILL_DIR}/scripts/html_vers_pdf.py *)
+  - Bash(python ${CLAUDE_SKILL_DIR}/scripts/html_vers_pdf.py *)
+  - Bash(py ${CLAUDE_SKILL_DIR}/scripts/html_vers_pdf.py *)
 description: Fabriquer les fichiers à imprimer ou projeter pour la classe — PDF A4 noir et blanc par défaut (HTML + feuille de style fournie, converti par script), diaporama ou document modifiable sur demande — avec nommage dans sorties/ et vérification visuelle avant livraison. À charger dès qu'un fichier doit être créé.
 ---
 
@@ -48,7 +51,7 @@ Composants et règles de mise en page :
 
 ## 4. Diaporama (.pptx)
 
-- Si un skill `pptx` est disponible dans l'environnement, suis-le. Sinon, `python-pptx` : format 16:9, fond blanc, police sans empattement ≥ 32 pt, une idée par diapositive, peu de texte.
+- Si un skill `pptx` est disponible dans l'environnement, suis-le. Sinon, `python-pptx` : format 16:9, fond blanc, police sans empattement ≥ 32 pt, une idée par diapositive, peu de texte. **Aucun texte projeté sous 24 pt**, petites aides comprises : ce qui ne se lit pas du fond de la classe va dans les notes de la diapositive.
 - Séance de découverte : corpus et questions, la règle n'apparaît qu'en fin (diapositive « Ce qu'on a découvert »).
 - Vérifie le rendu (conversion en PDF via LibreOffice si disponible : `soffice --headless --convert-to pdf`, puis aperçu PNG).
 
