@@ -160,6 +160,25 @@ def verifier(nom: str, d: Path):
     return False, f"vérification inconnue : {nom}"
 
 
+def verifier_frontmatters() -> list:
+    """Chaque SKILL.md doit avoir un frontmatter YAML valide, avec name et description."""
+    try:
+        import yaml
+    except ImportError:
+        print("(PyYAML absent : frontmatters non vérifiés ; pip install pyyaml)")
+        return []
+    erreurs = []
+    for f in sorted((DEPOT / "skills").glob("*/SKILL.md")):
+        m = re.match(r"---\r?\n(.*?)\r?\n---", f.read_text(encoding="utf-8"), re.S)
+        try:
+            d = yaml.safe_load(m.group(1)) if m else None
+            if not isinstance(d, dict) or not d.get("name") or not d.get("description"):
+                erreurs.append(f"{f.parent.name} : name ou description manquant")
+        except yaml.YAMLError as e:
+            erreurs.append(f"{f.parent.name} : {str(e).splitlines()[0]}")
+    return erreurs
+
+
 # -------------------------------------------------------------- lancement ----
 
 def preparer(sc: dict, base: Path, rep: int) -> Path:
@@ -280,6 +299,12 @@ def main() -> int:
             print("\n".join(a["deroule"]), "\n")
         return 0
 
+    erreurs = verifier_frontmatters()
+    if erreurs:
+        print("Frontmatter illisible (le skill serait chargé sans description) :")
+        for e in erreurs:
+            print("  " + e)
+        return 2
     conf = json.loads((ICI / "scenarios.json").read_text(encoding="utf-8"))
     modele = args.modele or conf["modele"]
     choisis = [s for s in conf["scenarios"] if not args.scenarios or s["id"] in args.scenarios]

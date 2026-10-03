@@ -1,6 +1,6 @@
 ---
 name: espace-classe
-description: Préparer ou mettre à jour l'espace de travail d'une classe de CE1, CE2 ou CE1-CE2 (AGENTS.md, data/, sorties/), pour que l'assistant range les documents et garde la mémoire de la classe d'une session à l'autre. Seulement quand le prof le demande explicitement (« prépare mon espace de travail », « installe ce dossier pour ma classe », « mets à jour mon espace »), jamais de ta propre initiative. Exception : si l'AGENTS.md du dossier demande de charger le skill assistant-classe (espace créé avec la version 1 du plugin), propose la mise à jour en une ligne.
+description: Préparer ou mettre à jour l'espace de travail d'une classe de CE1, CE2 ou CE1-CE2 (AGENTS.md, data/, sorties/), pour que l'assistant range les documents et garde la mémoire de la classe d'une session à l'autre. Seulement quand le prof le demande explicitement (« prépare mon espace de travail », « installe ce dossier pour ma classe », « mets à jour mon espace »), jamais de ta propre initiative. Exception — si l'AGENTS.md du dossier demande de charger le skill assistant-classe (espace créé avec la version 1 du plugin), propose la mise à jour en une ligne.
 ---
 
 # Espace de travail de la classe

@@ -243,7 +243,7 @@ Les utilisateurs ne reçoivent une nouvelle version que lorsque le champ `versio
 Pour livrer :
 
 1. incrémenter `version` dans `.claude-plugin/plugin.json` **et** `.codex-plugin/plugin.json`, avec le même numéro (`1.0.0` → `1.0.1` pour une correction, `1.1.0` pour un ajout, `2.0.0` pour un changement qui casse le format de `data/`) ;
-2. `claude plugin validate --strict .` ;
+2. `claude plugin validate --strict .` puis `claude plugin tag --dry-run .`, qui vérifie aussi le frontmatter de chaque skill (un « : » non protégé dans une description la fait ignorer) ;
 3. lancer le benchmark de bout en bout (`python bench/lancer.py`, voir [bench/README.md](bench/README.md)), comparer avec la version précédente et ajouter une ligne à son historique ;
 4. committer, puis taguer et pousser : `claude plugin tag --push` (crée le tag `assistant-ce1-ce2--v1.0.1`).
 
