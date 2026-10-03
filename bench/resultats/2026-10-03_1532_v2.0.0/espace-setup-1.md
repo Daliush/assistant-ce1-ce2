@@ -1,0 +1,3 @@
+J'ai préparé l'espace de ta classe de CE1-CE2 dans ce dossier, qui était vide. J'ai créé `AGENTS.md`, que je relis à chaque ouverture du dossier, ainsi que `data/` (avec `journal/`, `sequences/`, `FORMATS.md` et `README.md`) pour garder la mémoire de la classe et `sorties/` pour tes documents. J'ai aussi ajouté `.gitignore` et `.claude/settings.json`, qui réduit le nombre de fois où je te demande ton accord.
+
+C'est prêt : demande-moi ce dont tu as besoin. Pour que je retienne une habitude, dis-moi : *ajoute à mes consignes que…*

@@ -267,6 +267,8 @@ def main() -> int:
     p.add_argument("-n", "--repetitions", type=int, default=1)
     p.add_argument("--modele", help="modèle (défaut : celui de scenarios.json)")
     p.add_argument("--paralleles", type=int, default=5)
+    p.add_argument("--dossier", type=Path, default=Path.home() / "bench-ce1ce2",
+                   help="où créer les dossiers de test (défaut : ~/bench-ce1ce2 ; pas le dossier temporaire du système, que l'assistant refuse à juste titre comme espace de travail)")
     p.add_argument("--analyser", nargs="+", metavar="JSONL", help="analyser des transcripts existants")
     args = p.parse_args()
 
@@ -289,7 +291,8 @@ def main() -> int:
         print("Commande claude introuvable.")
         return 2
     env = environnement(claude)
-    base = Path(tempfile.mkdtemp(prefix="bench-ce1ce2-"))
+    args.dossier.mkdir(parents=True, exist_ok=True)
+    base = Path(tempfile.mkdtemp(prefix=datetime.datetime.now().strftime("%Y-%m-%d_%H%M_"), dir=args.dossier))
     taches = [(sc, rep) for sc in choisis for rep in range(1, args.repetitions + 1)]
     print(f"{len(taches)} session(s), modèle {modele}, dossiers dans {base}")
     resultats = []

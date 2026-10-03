@@ -15,9 +15,9 @@ python bench/lancer.py fiche-dossier fiche-conversation -n 3
 ```
 
 - Compte rendu : `resultats/AAAA-MM-JJ_HHMM_v<version>.md`, réponses de l'agent dans le dossier du même nom.
-- Les dossiers de test restent dans le dossier temporaire (chemin affiché) pour qu'on puisse ouvrir les PDF.
+- Les dossiers de test sont créés dans `~/bench-ce1ce2/` (option `--dossier`) et y restent pour qu'on puisse ouvrir les PDF ; supprimez-les quand vous voulez. Pas dans le dossier temporaire du système : l'assistant refuse, à juste titre, d'y préparer un espace de travail.
 - Coût : environ 0,50 $ par dictée ou par préparation d'espace et 1,30 $ par fiche PDF avec Opus, soit 6 $ environ pour les 7 scénarios.
-- Les sessions tournent avec `--permission-mode bypassPermissions`, dans le dossier temporaire uniquement.
+- Les sessions tournent avec `--permission-mode bypassPermissions`, dans leur dossier de test uniquement.
 - Analyser un transcript existant : `python bench/lancer.py --analyser ~/.claude/projects/<dossier>/<session>.jsonl`.
 
 ## Garder les mesures comparables
@@ -55,8 +55,11 @@ Le mode conversation est simulé par un dossier de travail dont le chemin contie
 |---|---|---|---|---|---|---|---|
 | 2026-10-02 | 1.1.0 | 120-169 s | 157 s | — | (créait le dossier) | 131 s* | [référence](resultats/2026-10-02_v1.1.0.md) |
 | 2026-10-03 | 1.1.0-dev (vitesse + mode conversation, non livré) | 43-47 s | 145-156 s | 41-44 s | 39-45 s | 71-117 s | [compte rendu](resultats/2026-10-03_1109_v1.1.0-dev.md) |
+| 2026-10-03 | 2.0.0 | 36-45 s | 150-151 s | 23-36 s | 36-47 s | 89-137 s | [compte rendu](resultats/2026-10-03_1319_v2.0.0.md), [relance hors Temp](resultats/2026-10-03_1532_v2.0.0.md) |
 
 \* Lancé dans un dossier de classe, la v1.1.0 n'ayant pas de mode conversation.
+
+Nouveaux scénarios en 2.0.0 : `espace-setup` 14-17 s, `espace-migration` 13-16 s.
 
 Jusqu'à la 1.1.0-dev, le scénario `dossier-neuf` préparait l'espace automatiquement puis répondait ; depuis la 2.0.0, `dossier-vide` vérifie au contraire que rien n'est créé sans demande, et `espace-setup` mesure la préparation.
 

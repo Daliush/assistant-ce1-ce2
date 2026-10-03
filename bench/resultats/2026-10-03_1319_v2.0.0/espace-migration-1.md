@@ -1,0 +1,3 @@
+J'ai mis ton espace de travail à jour pour la nouvelle version de l'assistant. Dans `AGENTS.md`, seule la partie de l'assistant a changé. Tes deux consignes n'ont pas bougé, et `classe.yaml` non plus. J'ai aussi ajouté `data/FORMATS.md` et les dossiers `data/journal/`, `data/sequences/` et `sorties/src/`.
+
+C'est prêt : demande-moi ce dont tu as besoin. Pour que je retienne une habitude, dis-moi : *ajoute à mes consignes que…*

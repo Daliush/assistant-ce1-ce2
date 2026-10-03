@@ -1,0 +1,3 @@
+J'ai mis à jour ton espace vers la nouvelle version de l'assistant. Dans `AGENTS.md`, seule la partie de l'assistant a été remplacée : tes deux consignes (version allégée des fiches, tutoiement) n'ont pas bougé. J'ai aussi ajouté `data/FORMATS.md` et les dossiers `data/journal/`, `data/sequences/` et `sorties/src/`.
+
+C'est prêt : demande-moi ce dont tu as besoin. Pour que je retienne une habitude, dis-moi : *ajoute à mes consignes que…*
