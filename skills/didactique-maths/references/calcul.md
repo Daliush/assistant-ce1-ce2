@@ -48,7 +48,7 @@ Fiche de fluence : une colonne de calculs, un cadre « mon score », un graphiqu
 ## 6. Calcul posé
 
 - **Addition posée** : CE1 dès le début de l'année quand les nombres le justifient ; aligner unités, dizaines, centaines ; retenue expliquée par l'échange 10 unités = 1 dizaine (matériel multibase puis schéma).
-- **Soustraction posée** : CE1 au plus tard en P3. **Un seul algorithme dans l'école**, du CE1 au CM2 : « par cassage » (emprunt) ou « par compensation ». Lis `classe.yaml` → `soustraction_posee` ; s'il manque, c'est l'une des relances autorisées (`etat-classe` §3). Sans réponse, présente le principe sans choisir à sa place et signale-le dans « À vérifier ».
+- **Soustraction posée** : CE1 au plus tard en P3. **Un seul algorithme dans l'école**, du CE1 au CM2 : « par cassage » (emprunt) ou « par compensation ». Utilise celui de l'école si tu le connais ; sinon, demande-le une fois (« Dans ton école, la soustraction posée se fait par cassage ou par compensation ? »). Sans réponse, présente le principe sans choisir à sa place et signale-le dans « À vérifier ».
 - **Multiplication posée** : CE2 au plus tard en P4 ; préparée par la distributivité en calcul mental (23 × 7 = 20 × 7 + 3 × 7).
 - CE2 : addition posée de montants à virgule au plus tard en P2, soustraction posée de montants à virgule au plus tard en P4.
 - **Pas de division posée** au CE2 (sens de la division et symbole ÷ seulement — voir le fichier programme).

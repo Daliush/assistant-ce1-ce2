@@ -21,8 +21,8 @@ Sur la semaine, **vérifie les totaux** et signale un écart (> 30 min sur une m
 
 ## 2. Construire une journée CE1-CE2
 
-1. Lis `classe.yaml` : jours de classe, horaires, **créneaux imposés** (piscine, intervenant, décloisonnement, APC), rituels déclarés. À défaut : 8 h 30-11 h 45 / 13 h 30-16 h 15, récréations 10 h 15 et 15 h 15, et dis-le.
-2. Place d'abord les **créneaux imposés**, puis les **quotidiens** (lecture, dictée, calcul mental, problèmes), puis les séquences en cours (lis les séquences `en_cours` pour savoir quelle séance vient).
+1. Pars de ce que tu sais de la classe : jours de classe, horaires, **créneaux imposés** (piscine, intervenant, décloisonnement, APC), rituels. À défaut : 8 h 30-11 h 45 / 13 h 30-16 h 15, récréations 10 h 15 et 15 h 15, et dis-le.
+2. Place d'abord les **créneaux imposés**, puis les **quotidiens** (lecture, dictée, calcul mental, problèmes), puis les séquences en cours (quelle séance vient, si tu le sais ; sinon demande-le en une seule question groupée).
 3. **Le matin pour les apprentissages fondamentaux nouveaux**, l'après-midi pour les matières de cycle communes (QLM, arts, EPS, LVE) — c'est un usage répandu, pas une règle.
 4. Alterne **décalage** (prof avec un niveau) et **temps communs**, et équilibre le temps-prof entre CE1 et CE2 sur la journée.
 5. Prévois les transitions (rangement, déplacement EPS, retour de récréation : un rituel calme de 5 min).
@@ -64,4 +64,4 @@ Le cahier journal est le document de bord du prof pour une journée : il reprend
 - Tableau jours × créneaux, une ligne de totaux par matière en bas.
 - Repère les **quotidiens** (dictée, calcul mental, lecture) : présents chaque jour pour chaque niveau.
 - Indique les séances de séquence prévues (n° de séance), les évaluations, les créneaux EMC (dont débat oral) et, sur l'année, les 3 séances d'EVAR.
-- Si une séquence est en cours depuis longtemps, c'est le moment de la question groupée d'avancement (skill `etat-classe`).
+- Si des séquences sont en cours, c'est le moment d'une question groupée sur leur avancement.

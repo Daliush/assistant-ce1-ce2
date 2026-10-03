@@ -1,6 +1,6 @@
 {
   "name": "assistant-ce1-ce2",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Assistant pédagogique pour classes de CE1, CE2 et CE1-CE2 (programmes 2026-2027) : séquences, séances, fiches, dictées, problèmes, journées, évaluations, PDF imprimables.",
   "author": {
     "name": "Daliush",
@@ -31,7 +31,7 @@
     ],
     "websiteURL": "https://github.com/Daliush/assistant-ce1-ce2",
     "defaultPrompt": [
-      "Prépare ce dossier pour ma classe de CE1-CE2",
+      "Prépare mon espace de travail pour ma classe de CE1-CE2",
       "Une dictée pour mes CE2 sur les pluriels en -aux",
       "Prépare-moi la première séance de grammaire sur la phrase pour mes CE1 et mes CE2"
     ]

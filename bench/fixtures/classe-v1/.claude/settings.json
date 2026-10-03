@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(~/.claude/plugins/**)",
+      "Edit(/data/journal/**)",
+      "Edit(/sorties/**)",
+      "Bash(python *html_vers_pdf.py *)",
+      "Bash(python3 *html_vers_pdf.py *)",
+      "Bash(py *html_vers_pdf.py *)",
+      "Bash(pdftoppm *)",
+      "Bash(pdfinfo *)"
+    ]
+  }
+}

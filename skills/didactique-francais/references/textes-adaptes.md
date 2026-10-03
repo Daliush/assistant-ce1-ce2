@@ -14,7 +14,7 @@ Repères de longueur du programme : CE1 copie 4-5 phrases courtes (fin P1), 5-6 
 
 ## 2. Déchiffrabilité (CE1)
 
-Si `classe.yaml` donne `sons_etudies_CE1`, n'utilise **que** ces CGP. Sinon, suppose (et dis-le) :
+Si tu sais quels sons les CE1 ont étudiés (le prof l'a dit, ou ses fichiers de classe le notent), n'utilise **que** ces CGP. Sinon, suppose (et dis-le) :
 
 - **P1 et début de P2** : les CGP habituellement étudiées au CP — voyelles et consonnes simples, et les graphèmes fréquents *ou, on, an/en, in, oi, eu, au/eau, é/er/ez, è/ê/ai, ch, gn, ill*. Les graphèmes plus rares ou contextuels restent à consolider.
 - **Graphèmes complexes** à consolider au CE1 (ordre selon la méthode de la classe) : *ain/ein/un, oin, ien, eil/ail/euil/ouil, -tion, ph, x, y*, valeurs de *s* (s/z), *c* et *ç*, *g/ge/gu*, lettres muettes finales.

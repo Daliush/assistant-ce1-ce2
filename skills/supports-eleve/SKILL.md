@@ -19,7 +19,7 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 - **Un seul verbe d'action** par consigne, à l'impératif, en tête : *Lis, Entoure, Souligne, Relie, Complète, Écris, Colorie, Recopie, Range, Calcule, Trace*.
 - **Courtes** (une ligne si possible), **numérotées**, en **gras**, avec **un exemple fait** quand la tâche est nouvelle.
 - CE1 en début d'année : consignes **déchiffrables** et accompagnées d'un **pictogramme** constant (même picto = même verbe toute l'année) ; elles sont **lues collectivement** avant l'autonomie.
-- Lexique de la classe (`classe.yaml` → `lexique`) respecté dans les consignes.
+- Lexique de la classe (les termes que le prof utilise : « déterminant », jamais « petit mot ») respecté dans les consignes.
 
 ### Contenu
 - **Une notion par fiche.** Pas d'exercice qui mobilise une notion non étudiée.
@@ -36,13 +36,13 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 
 ### Accessibilité et adaptations
 - Police sans empattement, taille 14 pt minimum pour les CE1, 13 pt pour les CE2 (16 pt pour une adaptation « police agrandie »), interligne 1,5, texte aligné à gauche (jamais justifié), pas d'italique ni de majuscules pour du texte long, espace entre les exercices.
-- Adaptations de `classe.yaml` → `eleves[].adaptations` : produire la **version adaptée** en plus, nommée `…_adapte.pdf`, **sans nom d'élève** sur le fichier. C'est **le même contenu** que la fiche, seule la forme change (police 16 pt avec `<body class="adapte">`, lignage agrandi, espacements). Un élève qui a besoin d'une police agrandie fait les mêmes exercices que les autres : ne lui donne pas la version allégée à la place. Si un élève relève des deux, adapte la version allégée (`…_allegee_adapte.pdf`).
+- Élèves dont tu sais qu'ils ont besoin d'adaptations (le prof te l'a dit, ou ses fichiers de classe le notent) : produire la **version adaptée** en plus, nommée `…_adapte.pdf`, **sans nom d'élève** sur le fichier. C'est **le même contenu** que la fiche, seule la forme change (police 16 pt avec `<body class="adapte">`, lignage agrandi, espacements). Un élève qui a besoin d'une police agrandie fait les mêmes exercices que les autres : ne lui donne pas la version allégée à la place. Si un élève relève des deux, adapte la version allégée (`…_allegee_adapte.pdf`).
 - « Consignes lues » ne change pas le document : rappelle-le dans la fiche de préparation (qui lit, à quel moment).
 - Noir et blanc : jamais d'information portée uniquement par la couleur (« colorie en rouge » → « colorie », « entoure », « souligne »).
 
 ## Ce que tu livres pour un support
 
-Ce skill sert quand le support part en fichier. Un contenu court que le prof dicte ou écrit au tableau (dictée, problème du jour…) va dans la réponse, sans fichier (`assistant-classe` §1).
+Ce skill sert quand le support part en fichier. Un contenu court que le prof dicte ou écrit au tableau (dictée, problème du jour…) va dans la réponse, sans fichier (`programme-cycle2` §1).
 
 1. La feuille élève (par niveau).
 2. Le corrigé (sauf pour une dictée : son texte, donné dans la réponse, sert de corrigé).

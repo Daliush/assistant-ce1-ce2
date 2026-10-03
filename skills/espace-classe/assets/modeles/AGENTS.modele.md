@@ -45,5 +45,3 @@ Les consignes de « Mes consignes » priment sur les réglages par défaut des s
 ## Mes consignes
 
 <!-- Ce que l'assistant doit toujours faire pour vous, une consigne par ligne (« - Tutoie-moi. »). Écrivez ici vous-même, ou demandez : « Ajoute à mes consignes que… ». -->
-- Fais toujours une version allégée des fiches pour les élèves en difficulté.
-- Tutoie-moi.

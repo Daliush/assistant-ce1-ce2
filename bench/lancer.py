@@ -128,6 +128,17 @@ def verifier(nom: str, d: Path):
             return False, "AGENTS.md absent"
         chemin = re.search(r"[A-Za-z]:[\\/]|/(home|Users|tmp)/", agents.read_text(encoding="utf-8"))
         return not chemin, "chemin absolu dans AGENTS.md" if chemin else "pas de chemin absolu"
+    if nom == "agents_md_v2":
+        texte = agents.read_text(encoding="utf-8") if agents.exists() else ""
+        ok = "assistant-ce1-ce2:debut v2" in texte and "assistant-classe" not in texte
+        return ok, "AGENTS.md v2" if ok else ("AGENTS.md absent" if not texte else "AGENTS.md pas en v2")
+    if nom == "formats_md":
+        ok = (d / "data" / "FORMATS.md").exists()
+        return ok, "data/FORMATS.md présent" if ok else "data/FORMATS.md absent"
+    if nom == "consignes_conservees":
+        texte = agents.read_text(encoding="utf-8") if agents.exists() else ""
+        ok = "- Tutoie-moi." in texte and "version allégée" in texte
+        return ok, "consignes du prof conservées" if ok else "consignes du prof perdues"
     if nom == "journal":
         entrees = [l for f in d.glob("data/journal/*.md") for l in f.read_text(encoding="utf-8").splitlines()
                    if l.startswith("- ")]

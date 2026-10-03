@@ -3,27 +3,65 @@
   "scenarios": [
     {
       "id": "dictee-dossier",
-      "titre": "Dictée, dossier de classe déjà prêt",
+      "titre": "Dictée, espace de travail prêt",
       "mode": "dossier",
       "fixture": "classe-type",
       "prompt": "Une dictée pour mes CE2 sur les pluriels en -aux.",
-      "verifications": ["agents_md", "journal", "pas_de_pdf"]
+      "verifications": [
+        "agents_md",
+        "journal",
+        "pas_de_pdf"
+      ]
     },
     {
       "id": "fiche-dossier",
-      "titre": "Fiche PDF, dossier de classe déjà prêt (consigne : toujours une version allégée)",
+      "titre": "Fiche PDF, espace de travail prêt (consigne : toujours une version allégée)",
       "mode": "dossier",
       "fixture": "classe-type",
       "prompt": "Une fiche d'exercices de numération pour mes CE1 sur les nombres jusqu'à 100.",
-      "verifications": ["agents_md", "journal", "pdf_min:3", "fiche_eleve_max_pages:2"]
+      "verifications": [
+        "agents_md",
+        "journal",
+        "pdf_min:3",
+        "fiche_eleve_max_pages:2"
+      ]
     },
     {
-      "id": "dossier-neuf",
-      "titre": "Première demande dans un dossier vide",
+      "id": "dossier-vide",
+      "titre": "Problème du jour dans un dossier vide (pas d'espace : rien ne doit être créé)",
       "mode": "dossier",
       "fixture": null,
       "prompt": "Bonjour ! Un problème du jour pour mes CE1, s'il te plaît.",
-      "verifications": ["agents_md", "agents_md_sans_chemin", "journal", "pas_de_pdf"]
+      "verifications": [
+        "pas_de_dossier_classe",
+        "pas_de_pdf"
+      ]
+    },
+    {
+      "id": "espace-setup",
+      "titre": "Préparer l'espace de travail dans un dossier vide",
+      "mode": "dossier",
+      "fixture": null,
+      "prompt": "Prépare mon espace de travail pour ma classe de CE1-CE2.",
+      "verifications": [
+        "agents_md_v2",
+        "agents_md_sans_chemin",
+        "formats_md",
+        "pas_de_pdf"
+      ]
+    },
+    {
+      "id": "espace-migration",
+      "titre": "Mettre à jour un espace créé avec la version 1",
+      "mode": "dossier",
+      "fixture": "classe-v1",
+      "prompt": "Mets à jour mon espace de travail.",
+      "verifications": [
+        "agents_md_v2",
+        "agents_md_sans_chemin",
+        "consignes_conservees",
+        "formats_md"
+      ]
     },
     {
       "id": "dictee-conversation",
@@ -31,7 +69,10 @@
       "mode": "conversation",
       "fixture": null,
       "prompt": "Une dictée pour mes CE2 sur les pluriels en -aux.",
-      "verifications": ["pas_de_dossier_classe", "pas_de_pdf"]
+      "verifications": [
+        "pas_de_dossier_classe",
+        "pas_de_pdf"
+      ]
     },
     {
       "id": "fiche-conversation",
@@ -39,7 +80,11 @@
       "mode": "conversation",
       "fixture": null,
       "prompt": "Une fiche d'exercices sur l'addition posée pour mes CE2.",
-      "verifications": ["pas_de_dossier_classe", "pdf_min:2", "fiche_eleve_max_pages:2"]
+      "verifications": [
+        "pas_de_dossier_classe",
+        "pdf_min:2",
+        "fiche_eleve_max_pages:2"
+      ]
     }
   ]
 }

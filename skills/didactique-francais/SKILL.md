@@ -18,12 +18,12 @@ description: Comment enseigner le français en CE1 et CE2 — écrire des textes
 
 ## Principes communs
 
-1. **Le texte doit être lisible par l'élève à qui il s'adresse.** En CE1, un texte que l'élève lit seul est **déchiffrable** : il ne contient que des correspondances graphème-phonème (CGP) déjà étudiées et des mots-outils déjà mémorisés. Sans `classe.yaml` (`sons_etudies_CE1`), suppose les CGP du CP (voir `textes-adaptes.md`) et **dis-le en une ligne**.
+1. **Le texte doit être lisible par l'élève à qui il s'adresse.** En CE1, un texte que l'élève lit seul est **déchiffrable** : il ne contient que des correspondances graphème-phonème (CGP) déjà étudiées et des mots-outils déjà mémorisés. Si tu ne sais pas quels sons la classe a étudiés, suppose les CGP du CP (voir `textes-adaptes.md`) et **dis-le en une ligne**.
 2. **Lectures du prof ≠ lectures de l'élève.** Un texte lu à voix haute par le prof peut être long et résistant ; un texte lu seul respecte les longueurs et le lexique du niveau.
 3. **Observer, manipuler, puis formuler.** En étude de la langue, la règle vient après l'observation d'un corpus ; le prof la valide et produit lui-même des modèles devant les élèves.
 4. **Tout se tient.** Une notion de grammaire se réinvestit en dictée et en production ; le vocabulaire du corpus en cours apparaît dans les textes de lecture et les dictées.
 5. **Quotidien** : lecture, écriture (copie ou production), dictée, vocabulaire (séance distincte de la grammaire), temps explicite de grammaire-orthographe.
-6. **Lexique figé** : utilise les termes de la classe (`classe.yaml` → `lexique`) ; à défaut, les termes du programme (déterminant, nom commun, nom propre, adjectif, verbe, pronom personnel sujet, adverbe en CE2, groupe sujet). Jamais « petit mot », « mot d'action ».
+6. **Lexique figé** : utilise les termes de la classe si le prof les a donnés ; à défaut, les termes du programme (déterminant, nom commun, nom propre, adjectif, verbe, pronom personnel sujet, adverbe en CE2, groupe sujet). Jamais « petit mot », « mot d'action ».
 7. **Listes fermées** : ne fais conjuguer que les temps et verbes du niveau ; ne fais nommer que les classes de mots du niveau ; pas de compléments circonstanciels ni du mot « épithète ».
 
 ## Double niveau en français

@@ -9,9 +9,9 @@ Le prof juge, l'IA prépare. Tu proposes des outils, des hypothèses et des brou
 
 ## 1. Données personnelles (rappel)
 
-- Travaille avec des **codes ou pseudonymes** (E01…). Si le prof colle des résultats nominatifs, propose de remplacer les noms par des codes avant analyse et **n'enregistre rien de nominatif** dans `data/`.
+- Travaille avec des **codes ou pseudonymes** (E01…). Si le prof colle des résultats nominatifs, propose de remplacer les noms par des codes avant analyse et **n'enregistre rien de nominatif**.
 - Pas de diagnostic, pas de vocabulaire médical (« dyslexique », « TDAH », « haut potentiel ») : décris des **observations** (« confond b et d en lecture de mots », « lit 32 mots/min ») et des **besoins** (« entraînement au décodage des sons proches »).
-- Les résultats individuels ne sont pas stockés dans `data/` par défaut. Si le prof veut un suivi, crée `${CLAUDE_PROJECT_DIR}/data/suivi/` (un fichier par code d'élève, ex. `data/suivi/E03.md` : date, compétence, observation, mesure), après son accord. Rappelle que même codées, ces données sont personnelles : dossier local, jamais publié (pas de dépôt git public).
+- Les résultats individuels ne sont pas enregistrés par défaut. Si le prof veut un suivi et que son espace de travail le prévoit, suis-en le format (une ligne par observation : date, compétence, observation, mesure), après son accord. Rappelle que même codées, ces données sont personnelles : dossier local, jamais publié (pas de dépôt git public).
 
 ## 2. Évaluation de séquence ou de période
 
@@ -59,10 +59,9 @@ Vérifie le découpage exact des domaines dans l'application LSU de l'école : i
 - Groupes **temporaires**, par compétence, revus à chaque période (pas des groupes de niveau figés).
 - Pour chaque groupe : objectif, 3 à 6 séances courtes, critère de sortie du groupe.
 - APC : petits groupes, 36 h/an, en plus du temps de classe (voir `${CLAUDE_SKILL_DIR}/../programme-cycle2/references/horaires-et-calendrier.md`).
-- Si le prof le souhaite, note les groupes dans `classe.yaml` → `eleves[].groupes` (codes seulement).
+- Si le prof veut garder les groupes, note-les avec les codes des élèves seulement, là où son espace de travail range les infos sur la classe.
 
 ## 8. Toujours
 
 - Livre le corrigé et la grille avec toute évaluation.
 - Encadré « À vérifier » : seuils proposés, items ambigus, temps de passation.
-- Mode dossier : ligne de journal (`assistant-classe` §5).

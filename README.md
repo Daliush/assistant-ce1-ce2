@@ -2,7 +2,7 @@
 
 Un plugin [Claude Code](https://code.claude.com), qui fonctionne aussi avec [Codex](#utiliser-avec-codex-chatgpt), pour préparer la classe en **CE1, CE2 ou CE1-CE2** : séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées, évaluations. Les contenus courts (une dictée, un problème du jour) arrivent directement dans la réponse ; les fiches sortent en **PDF A4 imprimables en noir et blanc**, avec leur corrigé, et une fiche de préparation pour les séances.
 
-Il s'utilise dans un **dossier de classe**, où il garde la mémoire de la classe, ou dans une [simple conversation](#dans-une-simple-conversation), sans rien installer dans un dossier.
+Il marche tel quel, dans une conversation comme dans n'importe quel dossier. Pour qu'il range les documents et se souvienne de la classe d'une fois sur l'autre, préparez un [espace de travail](#3-préparer-lespace-de-travail-de-la-classe) : un dossier de classe avec son fichier `AGENTS.md`.
 
 Il s'appuie sur les **programmes officiels en vigueur en 2026-2027**, relus sur les textes du Bulletin officiel : repères de période, listes fermées (temps, verbes, champ numérique), horaires.
 
@@ -23,7 +23,7 @@ Tout se fait en français, en langage courant :
 - **Respecter le programme du niveau** : il cite l'objectif officiel visé et respecte les repères de la période en cours. Par exemple, pas de fractions avant la période 2 en CE1, et pas de nombres au-delà de 1 000.
 - **Gérer le double niveau** : chaque séance est organisée minute par minute, en indiquant qui est avec le prof et qui travaille en autonomie, avec une activité « j'ai fini » prévue.
 - **Écrire des textes adaptés** : textes déchiffrables pour les CE1 selon les sons déjà étudiés, longueurs conformes aux repères, textes originaux ou du domaine public uniquement.
-- **Suivre l'avancement** : il retient les séquences en cours, demande où on en est avant de préparer la séance suivante, et tient un journal de tout ce qui a été préparé.
+- **Suivre l'avancement** (dans un espace de travail) : il retient les séquences en cours, demande où on en est avant de préparer la séance suivante, et tient un journal de tout ce qui a été préparé.
 - **Fabriquer les documents** : fiche élève par niveau, corrigé séparé, fiche de préparation pour une séance, version adaptée si besoin (police agrandie, consignes lues). Pour une dictée ou un problème du jour, il répond directement, puis propose la fiche à imprimer.
 
 ## Installation
@@ -56,9 +56,9 @@ claude plugin marketplace add Daliush/assistant-ce1-ce2
 claude plugin install assistant-ce1-ce2@assistant-ce1-ce2-marketplace
 ```
 
-### 3. Créer le dossier de la classe
+### 3. Préparer l'espace de travail de la classe
 
-Créez un dossier vide où vous voulez, par exemple `classe-2026-2027` (un dossier par classe ou par année), ouvrez-le dans Claude Code et demandez ce dont vous avez besoin. Rien n'est à copier ni à remplir.
+L'assistant marche dès maintenant, dans n'importe quel dossier. Pour qu'il range ses documents et retienne votre classe (séquences en cours, journal, habitudes), préparez une fois un espace de travail : un dossier par classe ou par année, par exemple `classe-2026-2027`.
 
 ```bash
 mkdir classe-2026-2027
@@ -66,9 +66,11 @@ cd classe-2026-2027
 claude
 ```
 
-Dans l'application Claude, ouvrez simplement ce dossier depuis l'onglet Code.
+Dans l'application Claude, ouvrez ce dossier depuis l'onglet Code. Puis demandez :
 
-Dès votre première demande, l'assistant prépare le dossier tout seul : il crée le fichier `AGENTS.md` et les dossiers `data/` et `sorties/`, puis vous répond. Vous pouvez aussi commencer par « Prépare ce dossier pour ma classe ».
+> Prépare mon espace de travail pour ma classe de CE1-CE2.
+
+L'assistant crée `AGENTS.md`, qui lui dit où ranger les documents et quoi retenir, et les dossiers `data/` et `sorties/`. Il ne le fait que si vous le demandez : un dossier sans `AGENTS.md` reste tel quel.
 
 Les premières fois, Claude Code peut vous poser trois questions. Acceptez-les :
 
@@ -88,17 +90,17 @@ Les mises à jour ne s'installent pas toutes seules. Deux possibilités :
 - activer la mise à jour automatique : dans `/plugin`, onglet **Marketplaces**, choisir `assistant-ce1-ce2-marketplace` puis **Enable auto-update** ;
 - ou mettre à jour à la main : `claude plugin update assistant-ce1-ce2@assistant-ce1-ce2-marketplace`.
 
-Dossier créé avec la version 1.0 (copie de `modele-classe/`) : demandez « Mets à jour mon dossier de classe ». L'assistant ajoute `AGENTS.md` et retire l'ancien `CLAUDE.md`, sans toucher à vos données.
+**Espace créé avec une version 1** (ou dossier de la version 1.0 avec un `CLAUDE.md`) : après le passage du plugin en 2.0, demandez « Mets à jour mon espace de travail ». L'assistant remplace la partie du plugin dans `AGENTS.md`, ajoute `data/FORMATS.md` et retire l'ancien `CLAUDE.md`, sans toucher à vos consignes ni à vos données. S'il voit un ancien espace, il vous le propose de lui-même.
 
-## Dans une simple conversation
+## Sans espace de travail
 
-Quand le plugin est disponible dans une conversation sans dossier choisi (claude.ai, application Claude), l'assistant travaille sans dossier de classe :
+Dans une conversation (claude.ai, application Claude) ou dans un dossier sans `AGENTS.md`, l'assistant prépare ce que vous demandez, sans rien installer :
 
-- il ne crée **ni `AGENTS.md`, ni `data/`, ni `sorties/`** : rien n'est installé, à aucune conversation ;
+- il ne crée **ni `AGENTS.md`, ni `data/`** : seulement les documents demandés ;
 - les contenus courts arrivent dans la réponse ; les fiches PDF sont proposées au téléchargement quand l'environnement sait fabriquer des fichiers ;
-- il **ne garde rien d'une conversation à l'autre** : pas de journal, pas de suivi des séquences, pas de `classe.yaml`. Donnez le contexte utile dans la demande (« mes CE1 ont vu les sons ou, on, an »). Pour qu'une habitude s'applique à chaque fois (« tutoie-moi », « toujours une version différenciée »), mettez-la dans les instructions de votre projet ou dans vos préférences : l'assistant vous donne la phrase à coller.
+- il **ne garde rien d'une fois sur l'autre** : pas de journal, pas de suivi des séquences, pas de `classe.yaml`. Donnez le contexte utile dans la demande (« mes CE1 ont vu les sons ou, on, an »). Pour qu'une habitude s'applique à chaque fois (« tutoie-moi », « toujours une version différenciée »), mettez-la dans les instructions de votre projet ou dans vos préférences.
 
-Pour qu'il se souvienne de la classe (progression, séquences en cours, documents déjà faits), travaillez dans un dossier avec Claude Code ou Codex.
+Pour qu'il se souvienne de la classe (progression, séquences en cours, documents déjà faits), préparez un [espace de travail](#3-préparer-lespace-de-travail-de-la-classe) dans un dossier, avec Claude Code ou Codex.
 
 ## Utiliser avec Codex (ChatGPT)
 
@@ -128,7 +130,7 @@ Redémarrez l'application Codex si elle était ouverte.
 
 ### Ensuite
 
-Comme avec Claude Code : créez un dossier vide, ouvrez-le dans Codex et demandez ce dont vous avez besoin.
+Comme avec Claude Code : créez un dossier, ouvrez-le dans Codex et demandez « Prépare mon espace de travail pour ma classe de CE1-CE2 ».
 
 Pour mettre à jour : `codex plugin marketplace upgrade`, puis relancez la commande `codex plugin add` ci-dessus.
 
@@ -143,12 +145,13 @@ Le plugin ne contient que les instructions. **Tout ce qui concerne votre classe 
 
 ```
 classe-2026-2027/
-├── AGENTS.md               # dit à l'assistant d'utiliser le plugin, et garde vos consignes
+├── AGENTS.md               # où ranger, quoi retenir, et vos consignes
 ├── .claude/settings.json   # autorise l'écriture sans demander dans data/journal/ et sorties/
 ├── data/                   # la mémoire de la classe
 │   ├── classe.yaml         # facultatif : créé seulement quand vous dites « oui, note-le »
 │   ├── journal/            # tout ce qui a été préparé, mois par mois (automatique)
-│   └── sequences/          # vos séquences et où vous en êtes
+│   ├── sequences/          # vos séquences et où vous en êtes
+│   └── FORMATS.md          # formats suivis par l'assistant (tenu à jour par le plugin)
 └── sorties/                # les PDF à imprimer
     └── src/                # leurs sources HTML (modifiables) et les aperçus
 ```
@@ -194,28 +197,27 @@ assistant-ce1-ce2/
 ├── .codex-plugin/
 │   └── plugin.json           # manifeste Codex (même nom, même version)
 ├── skills/
-│   ├── assistant-classe/     # point d'entrée : règles générales, emplacement des données, choix des skills
-│   ├── programme-cycle2/     # programme officiel CE1 et CE2 (données de référence)
+│   ├── programme-cycle2/     # programme officiel CE1 et CE2 + règles communes à toute production
 │   ├── planifier/            # programmation, séquence, séance, journée, double niveau, choix d'activité
 │   ├── didactique-francais/  # comment enseigner et écrire des contenus de français
 │   ├── didactique-maths/     # comment enseigner et écrire des contenus de maths
 │   ├── supports-eleve/       # forme des fiches, leçons, plans de travail, évaluations
-│   ├── rendu-documents/      # HTML + CSS + script → PDF (assets/, scripts/)
+│   ├── rendu-documents/      # HTML + CSS + script → PDF, nommage des fichiers (assets/, scripts/)
 │   ├── evaluer-suivre/       # évaluations, groupes de besoin, livret, analyse d'erreurs
-│   ├── etat-classe/          # format de data/ et règles de lecture et d'écriture
-│   └── dossier-classe/       # prépare le dossier de classe et tient AGENTS.md à jour (modèles inclus dans SKILL.md)
+│   └── espace-classe/        # prépare ou met à jour l'espace de travail, sur demande (modèles d'AGENTS.md et de data/, script)
 └── bench/                    # benchmark de bout en bout, à lancer avant chaque livraison
 ```
 
 ### Principes
 
 - **Un seul agent** charge les skills dont il a besoin. Il n'y a pas de sous-agent par matière ou par niveau.
-- **Deux modes**, choisis par `assistant-classe` §0 : *dossier* (un dossier ouvert par le prof : `AGENTS.md`, `data/`, `sorties/`, journal) et *conversation* (aucun dossier choisi : claude.ai, application Claude, espace de travail temporaire ; rien n'est créé ni mémorisé). Toute règle qui touche `data/` ou `AGENTS.md` ne vaut qu'en mode dossier.
+- **Un skill = une façon de faire.** Les skills disent comment préparer la classe ; ils ne savent rien de l'endroit où l'on range. Ils marchent pareil dans une conversation, dans un dossier quelconque ou dans un espace de travail. Les règles communes (produire juste ce qu'il faut, hypothèses, données personnelles, droits d'auteur, « À vérifier ») sont dans `programme-cycle2`, chargé pour tout contenu.
+- **L'espace de travail, c'est `AGENTS.md`.** Lu à chaque ouverture par Claude Code et Codex, il dit où ranger (`sorties/`), quoi retenir (journal, séquences, `classe.yaml`) et porte les consignes du prof : un bloc géré par le plugin (marqueurs `assistant-ce1-ce2:debut` / `fin`, remplacé par « mets à jour mon espace ») puis la section « Mes consignes », qui n'appartient qu'au prof. Les formats détaillés sont copiés dans l'espace (`data/FORMATS.md`) : `AGENTS.md` ne pointe jamais vers un fichier du plugin, dont le chemin dépend de l'installation.
+- **Pas d'installation automatique.** `espace-classe` ne se lance que sur demande du prof (ou propose une fois la mise à jour d'un espace v1). Sans `AGENTS.md`, rien n'est créé ni retenu.
 - **Vitesse** : un contenu court va dans la réponse, sans PDF ; les lectures se font en un seul tour ; tous les documents d'une production sont convertis par un seul appel à `html_vers_pdf.py` (un navigateur pour tous les fichiers) ; seule la page 1 des feuilles élève est vérifiée à l'œil.
-- **Données de référence dans les skills, état de la classe dans le projet de l'utilisateur.** Les skills désignent leurs propres fichiers par `${CLAUDE_SKILL_DIR}` et ceux de la classe par `${CLAUDE_PROJECT_DIR}`. Ils fonctionnent donc installés en plugin, dans `~/.claude/skills/` ou dans `.claude/skills/` d'un projet.
+- **Données de référence dans les skills, état de la classe dans l'espace du prof.** Les skills désignent leurs propres fichiers par `${CLAUDE_SKILL_DIR}`. Ils fonctionnent donc installés en plugin, dans `~/.claude/skills/` ou dans `.claude/skills/` d'un projet. N'écrivez jamais `${CLAUDE_PROJECT_DIR}` dans un modèle : Claude Code le remplace par un chemin absolu avant que l'agent le recopie.
 - **Le plugin n'écrit jamais dans son propre dossier.**
-- **`assistant-classe` remplace un `CLAUDE.md`**, qu'un plugin ne peut pas fournir. Le dossier de classe n'a qu'un `AGENTS.md`, créé à la demande par `dossier-classe` : il renvoie vers `assistant-classe` et porte les consignes du prof, entre un bloc géré par le plugin (marqueurs `assistant-ce1-ce2:debut` / `fin`, remplacé quand le modèle change) et la section « Mes consignes », qui n'appartient qu'au prof.
-- **`AGENTS.md` plutôt que `CLAUDE.md`**, pour être lu par tous les outils. Claude Code le lit seul depuis la version 2.1.277, à condition que le dossier n'ait pas de `CLAUDE.md` (sinon il lit `CLAUDE.md` à la place) : `dossier-classe` supprime donc l'ancien `CLAUDE.md` de la version 1.0, ou y ajoute `@AGENTS.md` si le prof y a écrit autre chose.
+- **`AGENTS.md` plutôt que `CLAUDE.md`**, pour être lu par tous les outils. Claude Code le lit seul depuis la version 2.1.277, à condition que le dossier n'ait pas de `CLAUDE.md` (sinon il lit `CLAUDE.md` à la place) : `espace-classe` supprime donc l'ancien `CLAUDE.md` de la version 1.0, ou y ajoute `@AGENTS.md` si le prof y a écrit autre chose.
 
 ### Tester en local
 

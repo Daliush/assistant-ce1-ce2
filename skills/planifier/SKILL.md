@@ -12,7 +12,7 @@ Ce skill décide **quoi, dans quel ordre, combien de temps et avec quelle organi
 | Demande | Ce que tu produis | Référence |
 |---|---|---|
 | « Que faire en P2 en maths ? », « programmation » | Programmation de période : séquences par semaine, par niveau | `references/sequence-et-seance.md` §1 |
-| « Une séquence sur… », « commencer à traiter… » | Plan de séquence (4 à 8 séances) + fichier dans `data/sequences/` | `references/sequence-et-seance.md` §2 |
+| « Une séquence sur… », « commencer à traiter… » | Plan de séquence (4 à 8 séances) | `references/sequence-et-seance.md` §2 |
 | « Une séance », « un cours », « la première séance » | Fiche de préparation de séance | `references/sequence-et-seance.md` §3 |
 | « Organise ma journée de jeudi », « ma semaine », « cahier journal » | Emploi du temps détaillé + cahier journal | `references/journee-et-semaine.md` |
 | « J'ai besoin de quelque chose pour… » (format non précisé) | 2 à 4 formats d'activité au choix, puis production de celui choisi | `references/formats-activites.md` |
@@ -36,7 +36,7 @@ Si le prof est pressé ou dit « fais au mieux », produis directement le format
 ## 3. Règles de planification
 
 - **Partir du programme** : objectifs cités, repères ★ de la période en cours, listes fermées.
-- **Partir de ce qui existe** : `classe.yaml` (progression, contraintes d'emploi du temps), séquences en cours, journal (supports déjà produits, à réutiliser).
+- **Partir de ce qui existe** : ce que tu sais de la classe (progression, contraintes d'emploi du temps, séquences en cours, supports déjà produits, à réutiliser).
 - **Prérequis** : vérifie ce que l'élève est censé savoir (niveau précédent dans `programme-cycle2`, ou année précédente : CP pour les CE1, CE1 pour les CE2). Si un prérequis est fragile, prévois une activité de rappel courte, pas une séquence de révision.
 - **Nouvelle notion de langue** : la première séance est une séance d'**observation et de manipulation** (corpus, tri, transformation), pas un cours magistral suivi d'une trace écrite. La trace écrite vient quand les élèves ont formulé la règle (souvent séance 2 ou 3).
 - **Maths** : manipuler, représenter, abstraire (concret → imagé → symbolique) ; calcul mental chaque jour ; problèmes chaque jour (≥ 10 par semaine).
@@ -49,13 +49,14 @@ Si le prof est pressé ou dit « fais au mieux », produis directement le format
 
 Lis `references/double-niveau.md` pour toute séance CE1-CE2. L'essentiel :
 
-- Écris toujours la séance en **deux colonnes CE1 / CE2** avec les mêmes tranches horaires, et indique pour chaque tranche **où est le prof** (●).
+- **Le prof ne peut être qu'avec un groupe à la fois.** Écris toujours la séance en **deux colonnes CE1 / CE2** avec les mêmes tranches horaires, et indique pour chaque tranche **où est le prof** (●).
+- **L'autonomie s'apprend** : une tâche autonome est déjà connue des élèves (refaite après une phase guidée, ou de réinvestissement), avec des consignes courtes lues collectivement au départ. En début d'année et pour les CE1 faibles lecteurs, elle est **courte** (10-15 min), consignes lues ou illustrées.
+- Les **temps communs** (lancement, rituels, mise en commun, chant, lecture offerte) structurent la journée.
 - **Le prof démarre avec le groupe qui découvre** une notion nouvelle ; l'autre groupe fait une tâche **connue**.
 - En début d'année, **les CE1 commencent avec le prof** ; leur autonomie porte sur une tâche qu'ils viennent de faire avec lui.
 - Prévois les **transitions** (consigne de l'autonomie donnée avant de partir, signal de fin, que faire si je bloque) et une activité **« j'ai fini »**.
 
 ## 5. Après la planification
 
-- Mode dossier : une séquence créée → fichier `data/sequences/…` (skill `etat-classe`), statut `prevue` ; une production → ligne de journal (`assistant-classe` §5).
-- Mode conversation : le plan de séquence est dans la réponse, rien n'est enregistré.
+- Le plan de séquence est dans la réponse (et dans un fichier si le prof le veut) : objectifs cités, prérequis, tableau des séances par niveau, évaluation prévue.
 - Termine par l'encadré **« À vérifier »** (durées, prérequis supposés, matériel, créneaux imposés).

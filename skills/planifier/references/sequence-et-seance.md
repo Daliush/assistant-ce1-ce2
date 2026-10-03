@@ -15,9 +15,9 @@ Souvent demandée par l'équipe de cycle ou l'inspection. Un tableau **par mati�
 Une **période** est l'intervalle entre deux vacances (P1 à P5, dates dans `programme-cycle2/references/horaires-et-calendrier.md`). La programmation répartit les séquences de la période, semaine par semaine.
 
 Méthode :
-1. Compte les semaines de la période (zone du `classe.yaml`, sinon zone non connue → nombre approximatif, dis-le).
+1. Compte les semaines de la période (zone de l'école si tu la connais ; sinon nombre approximatif, dis-le).
 2. Liste les **repères ★** de la période pour chaque niveau : ce qui doit être atteint à la fin.
-3. Reprends la ligne de progression de `classe.yaml` et les séquences en cours.
+3. Reprends ce que tu sais de la progression de la classe et des séquences en cours.
 4. Répartis : en français et en maths, plusieurs domaines avancent **en parallèle** (une séquence de grammaire, une de vocabulaire, la lecture et l'écriture continues, la numération et le calcul en continu, une séquence de grandeurs ou de géométrie).
 5. Garde **une semaine plus légère** en fin de période (évaluation, remédiation, projets).
 
@@ -47,7 +47,7 @@ Structure classique (à adapter) :
 4. **Réinvestissement** : utiliser la notion dans une autre tâche (dictée, production d'écrit, problème, autre discipline).
 5. **Évaluation** : courte, sur l'objectif, critères connus des élèves ; puis remédiation.
 
-Contenu d'un plan de séquence (et du fichier `data/sequences/…`) :
+Contenu d'un plan de séquence :
 - objectif(s) du programme **cité(s)**, par niveau ;
 - prérequis ;
 - tableau des séances (objectif CE1 | objectif CE2) ;
