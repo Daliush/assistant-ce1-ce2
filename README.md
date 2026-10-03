@@ -92,14 +92,31 @@ Dossier créé avec la version 1.0 (copie de `modele-classe/`) : demandez « Met
 
 Le même dépôt s'installe aussi comme plugin [Codex](https://developers.openai.com/codex) : mêmes skills, même dossier de classe (`AGENTS.md`, `data/`, `sorties/`). On peut passer d'un outil à l'autre sur le même dossier.
 
-Dans un terminal, avec Codex CLI installé (`npm install -g @openai/codex`) :
+### Depuis l'application Codex
+
+1. Dans la barre de gauche, ouvrez **Personnaliser**, puis **Plugins**.
+2. Cliquez sur **Ajouter**, en haut à droite, pour ajouter une marketplace. Dans **Source**, saisissez `Daliush/assistant-ce1-ce2`, laissez les autres champs vides et validez avec **Ajouter une marketplace**.
+
+   ![Fenêtre « Ajouter une marketplace de plug-in » avec la source Daliush/assistant-ce1-ce2](src/img/ajout_marketplace.png)
+
+3. Cherchez « ce1 » dans les plugins, puis cliquez sur **+** à côté d'**Assistant CE1-CE2**. Le plugin apparaît ensuite à gauche, dans **Installés**.
+
+   ![Recherche « ce1 » dans les plugins : Assistant CE1-CE2 en tête de liste](src/img/ajout_plugin.png)
+
+### Depuis un terminal
+
+Avec Codex CLI installé (`npm install -g @openai/codex`) :
 
 ```bash
 codex plugin marketplace add Daliush/assistant-ce1-ce2
 codex plugin add assistant-ce1-ce2@assistant-ce1-ce2-marketplace
 ```
 
-Redémarrez l'application Codex si elle était ouverte. Ensuite, comme avec Claude Code : créez un dossier vide, ouvrez-le dans Codex et demandez ce dont vous avez besoin.
+Redémarrez l'application Codex si elle était ouverte.
+
+### Ensuite
+
+Comme avec Claude Code : créez un dossier vide, ouvrez-le dans Codex et demandez ce dont vous avez besoin.
 
 Pour mettre à jour : `codex plugin marketplace upgrade`, puis relancez la commande `codex plugin add` ci-dessus.
 
