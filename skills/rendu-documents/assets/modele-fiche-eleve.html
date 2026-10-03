@@ -10,20 +10,9 @@
 <!-- class="ce1" (défaut), "ce2" (13pt), "adapte" (16pt, espacements), "prof" (prep, corrigé) -->
 <body class="ce1">
 
-<!-- Pictogrammes (même picto = même verbe toute l'année). Utilisation :
-     <svg class="picto"><use href="#p-entoure"/></svg> -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="p-lis" viewBox="0 0 24 24"><path d="M2 5c3-1 6-1 10 1 4-2 7-2 10-1v14c-3-1-6-1-10 1-4-2-7-2-10-1z M12 6v14" fill="none" stroke="#000" stroke-width="1.6"/></symbol>
-    <symbol id="p-ecris" viewBox="0 0 24 24"><path d="M4 20l2-6L17 3l4 4L10 18z M15 5l4 4 M4 20l6-2" fill="none" stroke="#000" stroke-width="1.6"/></symbol>
-    <symbol id="p-entoure" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6" fill="none" stroke="#000" stroke-width="1.6"/><text x="12" y="15.5" font-size="9" text-anchor="middle" font-family="Arial">mot</text></symbol>
-    <symbol id="p-souligne" viewBox="0 0 24 24"><text x="12" y="13" font-size="9" text-anchor="middle" font-family="Arial">mot</text><path d="M3 17h18" stroke="#000" stroke-width="2"/></symbol>
-    <symbol id="p-relie" viewBox="0 0 24 24"><circle cx="4" cy="6" r="2.2"/><circle cx="20" cy="18" r="2.2"/><path d="M5.5 7.5L18.5 16.5" stroke="#000" stroke-width="1.6"/></symbol>
-    <symbol id="p-colorie" viewBox="0 0 24 24"><rect x="2" y="6" width="12" height="12" fill="none" stroke="#000" stroke-width="1.4"/><path d="M2 12l6-6M2 18l12-12M8 18l6-6" stroke="#000" stroke-width="1"/><path d="M16 20l1.5-4L22 11.5l2 2-4.5 4.5z" fill="none" stroke="#000" stroke-width="1.2"/></symbol>
-    <symbol id="p-calcule" viewBox="0 0 24 24"><path d="M6 3v8M2 7h8M14 7h8M3 17l6 0M3 20l6 0M15 15l6 6M21 15l-6 6" stroke="#000" stroke-width="1.8"/></symbol>
-    <symbol id="p-decoupe" viewBox="0 0 24 24"><circle cx="6" cy="18" r="3" fill="none" stroke="#000" stroke-width="1.5"/><circle cx="18" cy="18" r="3" fill="none" stroke="#000" stroke-width="1.5"/><path d="M8 16L18 3M16 16L6 3" stroke="#000" stroke-width="1.5"/></symbol>
-  </defs>
-</svg>
+<!-- Pictogrammes (même picto = même verbe toute l'année) : <svg class="picto"><use href="#p-entoure"/></svg>
+     avec p-lis, p-ecris, p-entoure, p-souligne, p-relie, p-colorie, p-calcule, p-decoupe.
+     Ne recopie pas leurs définitions : le script de conversion les ajoute (assets/pictogrammes.svg). -->
 
 <header class="entete">
   <span class="champ">Prénom : ____________________</span>
@@ -52,6 +41,7 @@
     <div class="seyes" style="--n:2"></div>
   </section>
 
+  <!-- Défi : la classe "defi" ajoute l'étoile ★ toute seule, ne l'écris pas. -->
   <section class="exercice defi">
     <p class="consigne"><span class="num">3</span> Défi : écris une phrase sur ton animal préféré.</p>
     <div class="lignes"><div class="ligne"></div><div class="ligne"></div></div>
@@ -72,6 +62,17 @@
     </div>
   </section>
 
+  Opérations posées (addition, soustraction, multiplication) : une case par chiffre
+  <div class="operations">
+    <div><span class="lettre">a</span><table class="pose">
+      <tr class="colonnes"><td></td><td>c</td><td>d</td><td>u</td></tr>
+      <tr class="retenues"><td class="signe"></td><td></td><td></td><td></td></tr>
+      <tr><td class="signe"></td><td>2</td><td>3</td><td>6</td></tr>
+      <tr><td class="signe">+</td><td>1</td><td>4</td><td>8</td></tr>
+      <tr class="resultat"><td class="signe"></td><td></td><td></td><td></td></tr>
+    </table></div>
+  </div>
+
   Texte de lecture numéroté (numéro toutes les 5 lignes)
   <div class="texte-lecture">
     <p>Première ligne du texte…</p>
@@ -82,6 +83,13 @@
   <div class="demi-a4"><div class="lecon"><h2>G1 — La phrase</h2>
     <p class="a-retenir">Une phrase a du sens. Elle commence par une majuscule et se termine par un point.</p>
     <p><i>Le chat dort sur le lit.</i></p></div></div>
+
+  Relier (tableau de mise en page sans bordures) :
+  <table class="sans-bord">
+    <tr><td>trente-huit</td><td class="point">•</td><td class="point">•</td><td>80</td></tr>
+    <tr><td>quatre-vingts</td><td class="point">•</td><td class="point">•</td><td>38</td></tr>
+  </table>
+  Tableau à remplir (avec bordures) : <table><tr><th>Nombre</th><th>dizaines</th></tr><tr><td>47</td><td></td></tr></table>
 
   Lignage agrandi : <div class="seyes grand" style="--n:2"></div>
   Lignes simples   : <div class="lignes"><div class="ligne"></div></div>

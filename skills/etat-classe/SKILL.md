@@ -1,9 +1,11 @@
 ---
 name: etat-classe
-description: Lire et mettre à jour la mémoire de la classe dans data/ — classe.yaml (facultatif), séquences en cours et journal des productions. À charger quand le prof donne une info sur sa classe, quand une séquence avance ou se termine, quand il faut écrire une ligne de journal après une production, ou quand il demande « on en est où ? », « qu'est-ce que j'ai déjà fait ? ».
+description: Lire et mettre à jour la mémoire de la classe dans data/ — classe.yaml (facultatif), séquences en cours et journal des productions. Seulement dans un dossier de classe ouvert par le prof (Claude Code, Codex…), pas dans une simple conversation. À charger quand le prof donne une info sur sa classe, quand une séquence avance ou se termine, ou quand il demande « on en est où ? », « qu'est-ce que j'ai déjà fait ? ». Une simple ligne de journal n'en a pas besoin (format dans assistant-classe).
 ---
 
 # État de la classe
+
+**Mode conversation** (pas de dossier de classe : `assistant-classe` §0) : ce skill ne s'applique pas, il n'y a pas de `data/`. Pour « on en est où ? », réponds avec ce que le prof a dit dans la conversation.
 
 **Emplacement** : toutes les données de ce skill sont dans le projet du prof, `${CLAUDE_PROJECT_DIR}/data/`. Dans ce skill et dans `references/formats.md`, `data/…` veut toujours dire `${CLAUDE_PROJECT_DIR}/data/…`. **N'écris jamais dans le dossier du skill** (`${CLAUDE_SKILL_DIR}`) : il est remplacé à chaque mise à jour. Si `data/journal/` ou `data/sequences/` n'existent pas, crée-les au premier besoin.
 

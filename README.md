@@ -1,6 +1,8 @@
 # Assistant CE1-CE2
 
-Un plugin [Claude Code](https://code.claude.com), qui fonctionne aussi avec [Codex](#utiliser-avec-codex-chatgpt), pour préparer la classe en **CE1, CE2 ou CE1-CE2** : séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées, évaluations. Les documents sortent en **PDF A4 imprimables en noir et blanc**, avec leur corrigé et une fiche de préparation.
+Un plugin [Claude Code](https://code.claude.com), qui fonctionne aussi avec [Codex](#utiliser-avec-codex-chatgpt), pour préparer la classe en **CE1, CE2 ou CE1-CE2** : séances, séquences, fiches d'exercices, leçons, dictées, textes de lecture, problèmes, journées, évaluations. Les contenus courts (une dictée, un problème du jour) arrivent directement dans la réponse ; les fiches sortent en **PDF A4 imprimables en noir et blanc**, avec leur corrigé, et une fiche de préparation pour les séances.
+
+Il s'utilise dans un **dossier de classe**, où il garde la mémoire de la classe, ou dans une [simple conversation](#dans-une-simple-conversation), sans rien installer dans un dossier.
 
 Il s'appuie sur les **programmes officiels en vigueur en 2026-2027**, relus sur les textes du Bulletin officiel : repères de période, listes fermées (temps, verbes, champ numérique), horaires.
 
@@ -22,7 +24,7 @@ Tout se fait en français, en langage courant :
 - **Gérer le double niveau** : chaque séance est organisée minute par minute, en indiquant qui est avec le prof et qui travaille en autonomie, avec une activité « j'ai fini » prévue.
 - **Écrire des textes adaptés** : textes déchiffrables pour les CE1 selon les sons déjà étudiés, longueurs conformes aux repères, textes originaux ou du domaine public uniquement.
 - **Suivre l'avancement** : il retient les séquences en cours, demande où on en est avant de préparer la séance suivante, et tient un journal de tout ce qui a été préparé.
-- **Fabriquer les documents** : fiche élève par niveau, corrigé séparé, fiche de préparation, version adaptée si besoin (police agrandie, consignes lues).
+- **Fabriquer les documents** : fiche élève par niveau, corrigé séparé, fiche de préparation pour une séance, version adaptée si besoin (police agrandie, consignes lues). Pour une dictée ou un problème du jour, il répond directement, puis propose la fiche à imprimer.
 
 ## Installation
 
@@ -87,6 +89,16 @@ Les mises à jour ne s'installent pas toutes seules. Deux possibilités :
 - ou mettre à jour à la main : `claude plugin update assistant-ce1-ce2@assistant-ce1-ce2-marketplace`.
 
 Dossier créé avec la version 1.0 (copie de `modele-classe/`) : demandez « Mets à jour mon dossier de classe ». L'assistant ajoute `AGENTS.md` et retire l'ancien `CLAUDE.md`, sans toucher à vos données.
+
+## Dans une simple conversation
+
+Quand le plugin est disponible dans une conversation sans dossier choisi (claude.ai, application Claude), l'assistant travaille sans dossier de classe :
+
+- il ne crée **ni `AGENTS.md`, ni `data/`, ni `sorties/`** : rien n'est installé, à aucune conversation ;
+- les contenus courts arrivent dans la réponse ; les fiches PDF sont proposées au téléchargement quand l'environnement sait fabriquer des fichiers ;
+- il **ne garde rien d'une conversation à l'autre** : pas de journal, pas de suivi des séquences, pas de `classe.yaml`. Donnez le contexte utile dans la demande (« mes CE1 ont vu les sons ou, on, an »). Pour qu'une habitude s'applique à chaque fois (« tutoie-moi », « toujours une version différenciée »), mettez-la dans les instructions de votre projet ou dans vos préférences : l'assistant vous donne la phrase à coller.
+
+Pour qu'il se souvienne de la classe (progression, séquences en cours, documents déjà faits), travaillez dans un dossier avec Claude Code ou Codex.
 
 ## Utiliser avec Codex (ChatGPT)
 
@@ -192,11 +204,14 @@ assistant-ce1-ce2/
 │   ├── evaluer-suivre/       # évaluations, groupes de besoin, livret, analyse d'erreurs
 │   ├── etat-classe/          # format de data/ et règles de lecture et d'écriture
 │   └── dossier-classe/       # prépare le dossier de classe et tient AGENTS.md à jour (modèles inclus dans SKILL.md)
+└── bench/                    # benchmark de bout en bout, à lancer avant chaque livraison
 ```
 
 ### Principes
 
 - **Un seul agent** charge les skills dont il a besoin. Il n'y a pas de sous-agent par matière ou par niveau.
+- **Deux modes**, choisis par `assistant-classe` §0 : *dossier* (un dossier ouvert par le prof : `AGENTS.md`, `data/`, `sorties/`, journal) et *conversation* (aucun dossier choisi : claude.ai, application Claude, espace de travail temporaire ; rien n'est créé ni mémorisé). Toute règle qui touche `data/` ou `AGENTS.md` ne vaut qu'en mode dossier.
+- **Vitesse** : un contenu court va dans la réponse, sans PDF ; les lectures se font en un seul tour ; tous les documents d'une production sont convertis par un seul appel à `html_vers_pdf.py` (un navigateur pour tous les fichiers) ; seule la page 1 des feuilles élève est vérifiée à l'œil.
 - **Données de référence dans les skills, état de la classe dans le projet de l'utilisateur.** Les skills désignent leurs propres fichiers par `${CLAUDE_SKILL_DIR}` et ceux de la classe par `${CLAUDE_PROJECT_DIR}`. Ils fonctionnent donc installés en plugin, dans `~/.claude/skills/` ou dans `.claude/skills/` d'un projet.
 - **Le plugin n'écrit jamais dans son propre dossier.**
 - **`assistant-classe` remplace un `CLAUDE.md`**, qu'un plugin ne peut pas fournir. Le dossier de classe n'a qu'un `AGENTS.md`, créé à la demande par `dossier-classe` : il renvoie vers `assistant-classe` et porte les consignes du prof, entre un bloc géré par le plugin (marqueurs `assistant-ce1-ce2:debut` / `fin`, remplacé quand le modèle change) et la section « Mes consignes », qui n'appartient qu'au prof.
@@ -227,7 +242,8 @@ Pour livrer :
 
 1. incrémenter `version` dans `.claude-plugin/plugin.json` **et** `.codex-plugin/plugin.json`, avec le même numéro (`1.0.0` → `1.0.1` pour une correction, `1.1.0` pour un ajout, `2.0.0` pour un changement qui casse le format de `data/`) ;
 2. `claude plugin validate --strict .` ;
-3. committer, puis taguer et pousser : `claude plugin tag --push` (crée le tag `assistant-ce1-ce2--v1.0.1`).
+3. lancer le benchmark de bout en bout (`python bench/lancer.py`, voir [bench/README.md](bench/README.md)), comparer avec la version précédente et ajouter une ligne à son historique ;
+4. committer, puis taguer et pousser : `claude plugin tag --push` (crée le tag `assistant-ce1-ce2--v1.0.1`).
 
 Ne mettez pas de `version` dans `marketplace.json` : celle de `plugin.json` fait foi.
 

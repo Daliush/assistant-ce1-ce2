@@ -65,4 +65,4 @@ Vérifie le découpage exact des domaines dans l'application LSU de l'école : i
 
 - Livre le corrigé et la grille avec toute évaluation.
 - Encadré « À vérifier » : seuils proposés, items ambigus, temps de passation.
-- Ligne de journal (`etat-classe`).
+- Mode dossier : ligne de journal (`assistant-classe` §5).

@@ -1,0 +1,24 @@
+annee: "2026-2027"
+niveaux: [CE1, CE2]
+effectifs:
+  CE1: 11
+  CE2: 13
+  total: 24
+zone: C
+jours_sans_classe: [mercredi]
+manuels:
+  CE1_lecture: "Taoki"
+sons_etudies_CE1: "tous les sons simples, plus ou, on, an, oi"
+soustraction_posee: "méthode par cassage"
+emploi_du_temps:
+  - "Période 2 : piscine le lundi après-midi"
+eleves:
+  - code: E01
+    niveau: CE1
+    adaptations: ["consignes lues"]
+  - code: E02
+    niveau: CE1
+    adaptations: ["consignes lues"]
+  - code: E03
+    niveau: CE2
+    adaptations: ["police agrandie"]

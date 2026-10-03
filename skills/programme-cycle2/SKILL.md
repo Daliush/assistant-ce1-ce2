@@ -10,9 +10,21 @@ Ce skill contient le programme officiel en vigueur, matière par matière. Il ne
 ## Comment l'utiliser
 
 1. Repère la matière et le niveau de la demande. **En classe double niveau CE1-CE2, lis les fichiers des deux niveaux.**
-2. Lis **en entier** le fichier de la matière et du niveau (tableau ci-dessous). Les domaines voisins comptent : un texte de lecture doit respecter la conjugaison, le vocabulaire et la longueur du niveau.
-3. Détermine la période en cours à partir de la date du jour, avec `references/horaires-et-calendrier.md`, puis respecte les repères ★ de cette période.
+2. Lis **en entier** le fichier de la matière et du niveau (tableau ci-dessous), dans le même tour que tes autres lectures (les deux niveaux en parallèle). Les domaines voisins comptent : un texte de lecture doit respecter la conjugaison, le vocabulaire et la longueur du niveau.
+3. Détermine la période en cours à partir de la date du jour (tableau ci-dessous), puis respecte les repères ★ de cette période. `references/horaires-et-calendrier.md` ne sert que pour la grille horaire, l'emploi du temps et les dates détaillées des vacances.
 4. Dans ta production, **cite l'objectif du programme** visé, avec les mots du texte.
+
+## Périodes 2026-2027 (métropole)
+
+| Période | Dates |
+|---|---|
+| P1 | 1er septembre → 16 octobre 2026 |
+| P2 | 2 novembre → 18 décembre 2026 |
+| P3 | 4 janvier → vacances d'hiver (zone C 5 février, A 12 février, B 19 février 2027) |
+| P4 | retour d'hiver (C 22 février, A 1er mars, B 8 mars) → vacances de printemps (C 2 avril, A 9 avril, B 16 avril 2027) |
+| P5 | retour de printemps (C 19 avril, A 26 avril, B 3 mai) → 2 juillet 2027 |
+
+Pendant les vacances, prépare pour la période qui suit. Zone inconnue : dates de P3 à P5 à une ou deux semaines près.
 
 ## Règles
 

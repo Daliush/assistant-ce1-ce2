@@ -1,11 +1,13 @@
 ---
 name: dossier-classe
-description: Préparer le dossier de travail de la classe et tenir à jour son fichier AGENTS.md (lu à chaque ouverture par Claude Code, Codex et les autres assistants). À charger à la première demande dans un dossier sans AGENTS.md, quand le prof veut préparer ou installer un dossier (« prépare ce dossier », « configure ma classe »), quand il donne une consigne permanente sur ta façon de travailler (« retiens que… », « à partir de maintenant… », « ajoute à mes consignes… »), quand il veut modifier ou retirer une consigne, ou pour mettre à jour un dossier créé avec une ancienne version (avec un CLAUDE.md).
+description: Préparer le dossier de travail de la classe et tenir à jour son fichier AGENTS.md (lu à chaque ouverture par Claude Code, Codex et les autres assistants). Seulement dans un dossier que le prof a ouvert lui-même (Claude Code, Codex…), jamais dans une simple conversation (claude.ai, application Claude sans dossier choisi, espace de travail temporaire). À charger à la première demande dans un tel dossier sans AGENTS.md, quand le prof veut préparer ou installer un dossier (« prépare ce dossier », « configure ma classe »), quand il donne une consigne permanente sur ta façon de travailler (« retiens que… », « à partir de maintenant… », « ajoute à mes consignes… »), quand il veut modifier ou retirer une consigne, ou pour mettre à jour un dossier créé avec une ancienne version (avec un CLAUDE.md).
 ---
 
 # Dossier de la classe
 
 Le dossier ouvert par le prof (`${CLAUDE_PROJECT_DIR}`) est l'espace de travail de la classe. Ce skill le prépare et tient à jour son fichier **`AGENTS.md`**, que Claude Code, Codex et la plupart des assistants lisent automatiquement à chaque ouverture. Le prof n'a rien à copier ni à remplir : il crée un dossier vide, l'ouvre et travaille.
+
+**En mode conversation** (pas de dossier choisi par le prof : `assistant-classe` §0), ce skill ne s'applique pas : ne crée aucun fichier. Si le prof demande de préparer un dossier, explique en deux lignes qu'il faut ouvrir un dossier à lui dans Claude Code ou Codex pour que l'assistant garde la mémoire de la classe. Pour une consigne permanente, suis `assistant-classe` §0 (« Mode conversation »).
 
 Les modèles sont **dans ce fichier**, au §7 : recopie-les tels quels, sans les reformuler. Tu n'as besoin de lire aucun autre fichier du plugin pour préparer le dossier.
 
@@ -25,10 +27,10 @@ Crée tous ces fichiers, même si tu n'es pas Claude Code : le prof peut changer
 
 Quand le prof le demande, et automatiquement quand le skill `assistant-classe` trouve un dossier sans `AGENTS.md` :
 
-1. Fichiers A, B, C, **dans cet ordre** :
+1. Fichiers A, B, C, **dans le même tour** (appels d'écriture en parallèle) :
    - **absent** → écris le modèle tel quel ;
    - **présent** → ne l'écrase jamais : `AGENTS.md` → §4 ; autres fichiers → laisse-les tels quels.
-2. Crée les dossiers qui manquent. Si ton outil ne sait pas créer un dossier vide, écris-y un fichier `.gitkeep` vide.
+2. Crée les dossiers qui manquent, avec une seule commande. Si ton outil ne sait pas créer un dossier vide, écris-y un fichier `.gitkeep` vide.
 3. S'il y a un `CLAUDE.md` à la racine → §5.
 4. **En dernier**, `.claude/settings.json` (modèle D) : absent → écris-le ; présent → ajoute seulement les règles de `permissions.allow` du modèle qui manquent, sans toucher au reste. Claude Code demande souvent une confirmation pour écrire dans `.claude/` : si l'écriture est refusée, n'insiste pas et continue, le dossier fonctionne sans ce fichier. Dis-le en une ligne (« Sans `.claude/settings.json`, Claude Code te demandera plus souvent ton accord. »).
 5. Si le prof a demandé la préparation, réponds en trois lignes au plus : ce que tu as créé ou complété, puis « C'est prêt : demande-moi ce dont tu as besoin. Pour que je retienne une habitude, dis-moi : *ajoute à mes consignes que…* ». Si tu l'as faite d'office avant une autre demande, traite cette demande puis dis-le en une ligne à la fin.
@@ -84,7 +86,7 @@ Quand un dossier contient `CLAUDE.md`, Claude Code le lit **à la place** d'`AGE
 
 ## 7. Modèles
 
-Recopie chaque modèle tel quel (contenu du bloc, sans la ligne de clôture du bloc).
+Recopie chaque modèle tel quel (contenu du bloc, sans la ligne de clôture du bloc). N'y écris jamais de chemin absolu : le prof peut déplacer ou renommer son dossier.
 
 ### A. `AGENTS.md`
 
@@ -95,7 +97,7 @@ Recopie chaque modèle tel quel (contenu du bloc, sans la ligne de clôture du b
 Ce dossier est l'espace de travail d'un·e professeur·e des écoles (CE1, CE2 ou CE1-CE2), utilisé avec le plugin **assistant-ce1-ce2**.
 
 - Pour toute demande, charge d'abord le skill `assistant-classe` du plugin, puis suis ses règles.
-- Ce dossier est la racine du projet de la classe : c'est lui que les skills appellent `${CLAUDE_PROJECT_DIR}`. La mémoire de la classe est dans `data/`, les fichiers produits dans `sorties/`.
+- Ce dossier est la racine du projet de la classe : c'est lui que les skills appellent CLAUDE_PROJECT_DIR. La mémoire de la classe est dans `data/`, les fichiers produits dans `sorties/`.
 - Les skills du plugin sont en lecture seule : n'y écris jamais. Leurs fichiers, comme ceux de `data/`, sont en UTF-8 (sous Windows PowerShell : `Get-Content -Encoding UTF8`).
 - Les consignes de la section « Mes consignes » viennent du prof : elles priment sur les réglages par défaut des skills, sauf les règles sur les données personnelles, les droits d'auteur et le programme officiel.
 - Pour ajouter, modifier ou retirer une consigne, ou pour mettre ce fichier à jour, charge le skill `dossier-classe`.

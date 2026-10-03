@@ -104,6 +104,9 @@ ol.items li, ul.items li { margin-bottom: 1.5mm; }
 table { border-collapse: collapse; width: 100%; margin: 2mm 0; }
 th, td { border: 1pt solid var(--encre); padding: 1.5mm 2mm; text-align: left; vertical-align: top; }
 th { background: #eee; }
+/* Tableau de mise en page, sans bordures (exercice « relie », colonnes alignées) */
+table.sans-bord td, table.sans-bord th { border: none; background: none; padding: 1.5mm 3mm; }
+table.sans-bord .point { text-align: center; width: 10mm; font-size: 16pt; line-height: 1; }
 
 /* Texte de lecture numéroté */
 .texte-lecture { border: 1pt solid var(--encre); padding: 3mm 4mm 3mm 12mm; counter-reset: ligne; }
@@ -129,6 +132,36 @@ body.prof h2 { font-size: 13pt; margin: 4mm 0 1mm 0; border-bottom: 0.75pt solid
 /* Marques de correction dans les exemples et les corrigés */
 .entoure { border: 1.2pt solid var(--encre); border-radius: 50%; padding: 0 1.5mm; }
 .souligne { text-decoration: underline; text-decoration-thickness: 1.2pt; text-underline-offset: 2pt; }
+
+/* Opération posée : une case par chiffre, ligne des retenues, trait sous le résultat */
+.operations { display: flex; flex-wrap: wrap; gap: 3mm 8mm; align-items: flex-start; }
+.operations .lettre { display: block; font-size: 10pt; color: var(--gris); }
+table.pose { width: auto; border-collapse: collapse; margin: 1mm 0; line-height: 1; }
+table.pose td { border: 0.6pt dotted var(--gris); width: 7.5mm; height: 7.5mm; padding: 0; text-align: center; vertical-align: middle; }
+table.pose td.signe { border: none; font-weight: bold; }
+table.pose tr.colonnes td { border: none; height: 4mm; font-size: 9pt; color: var(--gris); }
+table.pose tr.retenues td { height: 5mm; font-size: 9pt; }
+table.pose tr.retenues td.signe { border: none; }
+table.pose tr.resultat td { border-top: 1.6pt solid var(--encre); height: 8mm; }
+body.prof table.pose td { width: 6.5mm; height: 6.5mm; }
+
+/* Resserrage automatique (ajouté par html_vers_pdf.py quand une feuille élève
+   déborde d'une page) : espacements seulement, jamais la taille du texte. */
+body.serre-1 .exercice, body.serre-2 .exercice, body.serre-3 .exercice { margin-bottom: 4mm; }
+body.serre-1 .objectif, body.serre-2 .objectif, body.serre-3 .objectif { margin-bottom: 3mm; }
+body.serre-1 .cadre, body.serre-2 .cadre, body.serre-3 .cadre { min-height: 20mm; }
+body.serre-2 .exercice, body.serre-3 .exercice { margin-bottom: 2.5mm; }
+body.serre-2 .entete, body.serre-3 .entete { margin-bottom: 2mm; }
+body.serre-2 h1, body.serre-3 h1 { font-size: 17pt; }
+body.serre-2 .consigne, body.serre-3 .consigne { margin-bottom: 1mm; }
+body.serre-2 ol.items li, body.serre-3 ol.items li, body.serre-2 ul.items li, body.serre-3 ul.items li { margin-bottom: 0.5mm; }
+body.serre-2 .seyes, body.serre-3 .seyes { margin: 1mm 0; }
+body.serre-2 .cadre, body.serre-3 .cadre { min-height: 17mm; margin: 1mm 0; }
+body.serre-2 table:not(.pose) :is(th, td), body.serre-3 table:not(.pose) :is(th, td) { padding-top: 1mm; padding-bottom: 1mm; }
+body.serre-3 .exercice { margin-bottom: 1.5mm; }
+body.serre-3 .lignes .ligne { height: 9.5mm; }
+body.serre-3 .cadre { min-height: 15mm; }
+body.serre-3 .etiquette { padding: 1mm 3mm; }
 
 /* Utilitaires */
 .saut-page { break-after: page; page-break-after: always; }

@@ -1,6 +1,6 @@
 ---
 name: supports-eleve
-description: Concevoir les documents que les élèves de CE1-CE2 ont entre les mains ou sous les yeux — fiche d'exercices, trace écrite (leçon), plan de travail, atelier autonome, fiche de dictée, questionnaire de lecture, évaluation, affichage — avec consignes adaptées, progressivité, différenciation et corrigé. À charger dès qu'un support élève est produit (le contenu vient des skills de didactique, la mise en fichier de rendu-documents).
+description: Concevoir les documents que les élèves de CE1-CE2 ont entre les mains ou sous les yeux — fiche d'exercices, trace écrite (leçon), plan de travail, atelier autonome, fiche de dictée, questionnaire de lecture, évaluation, affichage — avec consignes adaptées, progressivité, différenciation et corrigé. À charger dès qu'un support élève est produit en fichier (le contenu vient des skills de didactique, la mise en fichier de rendu-documents) ; pas pour un contenu court donné dans la réponse.
 ---
 
 # Supports élève
@@ -27,7 +27,7 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 - **Différenciation sur la même fiche** plutôt que trois fiches : exercices de base pour tous + un exercice **★ défi** (prolongement) en fin de fiche. Pour l'étayage, une **version allégée** `…_allegee.pdf` : **moins de contenu** (moins d'items, mots-étiquettes, phrases à compléter, dictée à trous), même mise en forme que la fiche. Produite si le prof la demande ; sinon proposée en une ligne. Règle valable pour tous les supports, dictées comprises.
 - **Place pour répondre** suffisante (lignes d'écriture pour l'écrit, cases pour les calculs, cadre « Mon schéma » pour les problèmes).
 - **Autocorrection possible** pour les fiches d'autonomie (fiche réponse séparée, ou réponse vérifiable : puzzle, code couleur).
-- **Une page A4** quand c'est possible ; deux maximum.
+- **Une page A4** quand c'est possible ; deux maximum. Dimensionne la fiche dès le premier jet (repère d'usage) : en CE1, une page A4 tient environ 5 exercices simples de 4 items ; compte double un exercice avec images, lignage Seyès, cadres de problème ou opérations posées. Une version allégée tient sur une page.
 - **Demi-A4** quand la fiche tient sur une demi-page (dictée, petite fiche de réinvestissement, ticket de sortie) : deux exemplaires identiques sur la même feuille, chacun avec son en-tête, séparés par le pointillé de découpe (`.demi-a4`). Le prof photocopie deux fois moins.
 
 ### Corrigé et document prof
@@ -42,7 +42,10 @@ Gabarits détaillés par type : `references/types-de-supports.md`.
 
 ## Ce que tu livres pour un support
 
+Ce skill sert quand le support part en fichier. Un contenu court que le prof dicte ou écrit au tableau (dictée, problème du jour…) va dans la réponse, sans fichier (`assistant-classe` §1).
+
 1. La feuille élève (par niveau).
-2. Le corrigé.
-3. Si demandé ou si c'est une séance : la fiche de préparation (`planifier`).
-4. Dans la réponse : en 2-3 lignes ce que contient le support, l'hypothèse faite (période, sons connus…), puis « À vérifier ».
+2. Le corrigé (sauf pour une dictée : son texte, donné dans la réponse, sert de corrigé).
+3. Si demandé ou si c'est une séance : la fiche de préparation (`planifier`). Pas de fiche de préparation pour une fiche d'exercices ou une dictée isolées.
+4. Version allégée ou adaptée : selon les règles ci-dessus ; sinon, proposée en une ligne.
+5. Dans la réponse : en 2-3 lignes ce que contient le support, l'hypothèse faite (période, sons connus…), puis « À vérifier ».

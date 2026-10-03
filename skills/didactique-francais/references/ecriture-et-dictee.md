@@ -37,7 +37,7 @@ Construire une dictée :
 2. Écris des phrases qui contiennent **uniquement** ce qui a été étudié (+ mots-outils connus). Aucun mot piège non travaillé.
 3. Longueur (repère d'usage, pas officiel) : CE1 P1 2-3 phrases courtes ou une dizaine de mots ; CE1 fin d'année 4-5 phrases ; CE2 4 à 8 lignes selon la période.
 4. **Version allégée** (dictée à trous, ou moins de phrases) : produite si `classe.yaml` signale des adaptations pour ce niveau ou si le prof la demande ; sinon, propose-la en une ligne (même règle que `supports-eleve`).
-5. Fiche de préparation : texte, mots à préparer, points d'attention (« *les grands chiens* : faire verbaliser la chaîne d'accords »), corrigé, barème ou critères (mots justes, accords justes : comptés séparément).
+5. Pour le prof : texte, mots à préparer, points d'attention (« *les grands chiens* : faire verbaliser la chaîne d'accords »), critères (mots justes, accords justes : comptés séparément). **Par défaut, tout cela va dans la réponse**, sans PDF : le texte de la dictée sert de corrigé. Feuille élève et fiche de préparation en PDF seulement si le prof les demande ou si la dictée fait partie d'une séance (`assistant-classe` §1).
 
 Double niveau : dictée alternée (une phrase CE1, une phrase CE2, à des rythmes différents) ou dictée commune avec phrases supplémentaires CE2.
 

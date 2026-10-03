@@ -56,6 +56,6 @@ Lis `references/double-niveau.md` pour toute séance CE1-CE2. L'essentiel :
 
 ## 5. Après la planification
 
-- Une séquence créée → fichier `data/sequences/…` (skill `etat-classe`), statut `prevue`.
-- Une production → ligne de journal.
+- Mode dossier : une séquence créée → fichier `data/sequences/…` (skill `etat-classe`), statut `prevue` ; une production → ligne de journal (`assistant-classe` §5).
+- Mode conversation : le plan de séquence est dans la réponse, rien n'est enregistré.
 - Termine par l'encadré **« À vérifier »** (durées, prérequis supposés, matériel, créneaux imposés).
